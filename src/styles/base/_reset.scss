@@ -4,3 +4,7 @@ body{
     margin:0;
     font-family: 'Noto Sans KR',  'NanumGothic' , sans-serif;
 }
+::selection {
+    background-color: oc-gray-6;
+    color: #fff;
+}

@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // load components
-import Header from 'components/Base/Header/Header';
+// 로고는 헤더의 멍청한 컴포넌트에서 추출해 온것.
+import Header, {SidebarButton, BrandLogo, AuthButton} from 'components/Base/Header/Header';
+
 class App extends Component {
     
    
@@ -12,7 +14,11 @@ class App extends Component {
     const {children} = this.props;
         return (
             <div>
-                <Header/>
+                <Header>
+                    <SidebarButton />
+                    <BrandLogo />
+                    <AuthButton />
+                </Header> 
                 {children}
             </div>
         );
