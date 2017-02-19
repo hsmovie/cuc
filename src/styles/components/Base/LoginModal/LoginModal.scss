@@ -5,9 +5,27 @@
     transform: translate( -50%, -50%);
     z-index: $z-index-modal;
     .login-modal {
+
+        @import 'SocialLoginButton';
         background: white;
         width: 25rem;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        .exit {
+            position:absolute;
+            color: $oc-gray-7;
+            top: 0.5rem;
+            right: 0.5rem;
+            cursor: pointer;
+            user-select: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            &:hover{
+                color:$oc-gray-9;
+            }
+            &:active{
+                color:$oc-gray-7;
+            }
+        }
         .logo {
             padding-top:2rem;
             text-align: center;
@@ -31,7 +49,15 @@
         }
 
         .buttons-wrapper {
-           margin: 0;
+           padding: 1rem;
+        
+        }
+        // animation setting
+        &.bounceIn, &.bounceOut {     
+           -webkit-animation-duration: 0.5s;
+           animation-duration: 0.5s;
+           -webkit-animation-fill-mode: both;
+           animation-fill-mode: both;
         }
         
     }
