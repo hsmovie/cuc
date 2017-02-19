@@ -31,7 +31,7 @@ class App extends Component {
                     <BrandLogo />
                     <AuthButton onClick={handleLoginModal.open}/>
                 </Header> 
-                <LoginModal visible={modal.getIn(['login', 'open'])}>
+                <LoginModal visible={modal.getIn(['login', 'open'])} onHide={handleLoginModal.close}>
                     <SocialLoginButton type="google"/>
                     <SocialLoginButton type="facebook"/>
                 </LoginModal>
