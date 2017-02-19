@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as header from 'redux/modules/base/header';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import LoginModal from 'components/Base/LoginModal';
 // load components
 // 로고는 헤더의 멍청한 컴포넌트에서 추출해 온것.
 import Header, {SidebarButton, BrandLogo, AuthButton} from 'components/Base/Header/Header';
@@ -19,6 +19,7 @@ class App extends Component {
                     <BrandLogo />
                     <AuthButton />
                 </Header> 
+                <LoginModal/>
                 {children}
             </div>
         );

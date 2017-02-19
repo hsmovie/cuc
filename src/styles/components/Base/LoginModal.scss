@@ -1,0 +1,38 @@
+.login-modal-wrapper {
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate( -50%, -50%);
+    z-index: $z-index-modal;
+    .login-modal {
+        background: white;
+        width: 25rem;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        .logo {
+            padding-top:2rem;
+            text-align: center;
+            line-height: 3rem;
+            font-size: 3rem;
+            font-weight: 800;
+            padding-bottom: 2rem;
+            color: $oc-pink-3;
+            background: $oc-gray-1;
+        }
+
+        .description {
+             text-align: center;
+             margin-top: 2rem;
+             margin-bottom: 2rem; 
+             p {
+                 margin-bottom: 0.3rem;
+                 font-size:  1.2rem;
+                 color: $oc-gray-7
+             }
+        }
+
+        .buttons-wrapper {
+           margin: 0;
+        }
+        
+    }
+}
