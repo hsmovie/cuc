@@ -29,7 +29,7 @@ class LoginModal extends Component {
 
         if(!closing && !visible) return null;
 
-        const animation = closing ? 'bounceIn' : 'bounceOut'; 
+        const animation = closing ? 'bounceOut' : 'bounceIn'; 
         
         // closing 이 false 고 
         return (

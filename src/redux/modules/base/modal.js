@@ -31,6 +31,7 @@ export default handleActions({
             ...data
         });
     },
+    
     [MODAL_CLOSE]: (state, action) => {
         const modalName = action.payload;
         return state.setIn([modalName, 'open'], false);
