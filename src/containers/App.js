@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import LoginModal, { SocialLoginButton } from 'components/Base/LoginModal/LoginModal';
 import * as modal from 'redux/modules/base/modal'
 import auth from 'helpers/firebase/auth';
+import LinkAccountModal from 'components/Base/LoginModal/LinkAccountModal';
 // load components
 // 로고는 헤더의 멍청한 컴포넌트에서 추출해 온것.
 import Header, {SidebarButton, BrandLogo, AuthButton} from 'components/Base/Header/Header';
@@ -30,48 +31,54 @@ class App extends Component {
     }
 
     handleAuth = (provider) => {
+        this.handleModal.close('login');
         auth[provider]().catch(
             error => {
                 if(error.code === 'auth/account-exists-with-different-credential'){
-                    auth.resolveDuplicate(error).then(
-                        (response) => {console.log(response)}
-                    );
+                    this.handleModal.open({
+                        modalName:'linkAccount',
+                        data: error
+                    }) 
+
+                    // auth.resolveDuplicate(error).then(
+                    //     (response) => {console.log(response)}
+                    // );
                 }
             }
         );
     }
- 
-   handleLoginModal = (() => {
-       
+
+   handleModal = ((modalName) => {
        const { ModalActions } = this.props;
-       console.log(ModalActions)
        return {
-           open: () => {
-               ModalActions.openModal({modalName: 'login'});
+           open:({modalName, data}) => {
+               ModalActions.openModal({modalName, data});
            },
-           close: () => {
-               ModalActions.closeModal('login');
+           close: (modalName) => {
+               ModalActions.closeModal(modalName);
            }
        }
    })()
+
 
    logOut = () => {
        auth.logout();
    }
     render() {
     const {children, status: {modal}} = this.props;
-    const { handleLoginModal, handleAuth, logOut } = this;
+    const { handleAuth, logOut, handleModal } = this;
         return (
             <div>
                 <Header>
                     <SidebarButton />
                     <BrandLogo />
-                    <AuthButton onClick={handleLoginModal.open}/>
+                    <AuthButton onClick={() => handleModal.open({modalName:'login'})}/>
                 </Header> 
-                <LoginModal visible={modal.getIn(['login', 'open'])} onHide={handleLoginModal.close}>
+                <LoginModal visible={modal.getIn(['login', 'open'])} onHide={() => handleModal.close('login')}>
                     <SocialLoginButton onClick={() => handleAuth('google')} type="google"/>
                     <SocialLoginButton onClick={() => handleAuth('facebook')} type="facebook"/>
                 </LoginModal>
+              <LinkAccountModal visible={modal.getIn(['linkAccount', 'open'])} onHide={() => handleModal.close('linkAccount')} />
                 {children}
                 <button onClick={() => logOut()}></button>
             </div>
