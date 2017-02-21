@@ -36,14 +36,37 @@ class App extends Component {
         );
     }
 
-    handleAuth = (provider) => {
+    handleAuth = async (provider) => {
+        const{handleModal} = this.props;
         this.handleModal.close('login');
+
+        try {
+            await auth[provider]();
+        } catch (e) {
+            //이미 존재하는 이메일일 경우 발생하는 레어
+            if(e.code === 'auth/account-exists-with-different-credential'){
+                //계정 링크를 시도한다.
+
+                //어떤 프로바이더로 가입되어있는지 확인
+                const provider = await auth.getExistingProvider(e.email);
+
+                //링크하시겠습니까? 모달을 띄워준다
+                handleModal.open({
+                    modalName: 'linkAccount',
+                    data:{
+                        e,
+                        provider
+                    }
+                });
+            }
+        }
         auth[provider]().catch(
             error => {
                 if(error.code === 'auth/account-exists-with-different-credential'){
+                    const provider = auth.getExistingProvider(error.email)
                     this.handleModal.open({
                         modalName:'linkAccount',
-                        data: error
+                        data: {error}
                     }) 
 
                     // auth.resolveDuplicate(error).then(
