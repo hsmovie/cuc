@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Dimmer from 'components/Common/Dimmer';
 import EyeCatchy from 'components/Common/EyeCatchy';
+import SocialLoginButton from './SocialLoginButton';
 class LoginModal extends Component {
     state = {
         closing: false
@@ -54,5 +55,7 @@ class LoginModal extends Component {
         );
     }
 }
+
+LoginModal.SocialLoginButton = SocialLoginButton;
 export { default as SocialLoginButton } from './SocialLoginButton';
 export default LoginModal;
