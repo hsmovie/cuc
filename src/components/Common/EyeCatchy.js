@@ -19,12 +19,14 @@ class Content extends Component {
     handleClickOutside = () => {
         this.props.hide();
     }
-    render(){
-        const {children} = this.props;
-        return <div>{children}</div>
+ render(){
+    const {children} = this.props;
+     return <div>{children}</div>
      }
 }
 Content = onClickOutside(Content);
+
+
 
 class EyeCatchy extends Component {
     handleHide = () => {

@@ -37,7 +37,8 @@ class App extends Component {
     }
 
     handleAuth = async (provider) => {
-        const{handleModal} = this.props;
+        const {handleModal} = this;
+
         this.handleModal.close('login');
 
         try {
@@ -48,34 +49,24 @@ class App extends Component {
                 //계정 링크를 시도한다.
 
                 //어떤 프로바이더로 가입되어있는지 확인
-                const provider = await auth.getExistingProvider(e.email);
-
+                const existingProvider = await auth.getExistingProvider(e.email);
                 //링크하시겠습니까? 모달을 띄워준다
                 handleModal.open({
                     modalName: 'linkAccount',
                     data:{
-                        e,
-                        provider
+                        error: e,
+                        provider,
+                        existingProvider
                     }
                 });
             }
         }
-        auth[provider]().catch(
-            error => {
-                if(error.code === 'auth/account-exists-with-different-credential'){
-                    const provider = auth.getExistingProvider(error.email)
-                    this.handleModal.open({
-                        modalName:'linkAccount',
-                        data: {error}
-                    }) 
+    }
 
                     // auth.resolveDuplicate(error).then(
                     //     (response) => {console.log(response)}
                     // );
-                }
-            }
-        );
-    }
+    
 
    handleModal = ((modalName) => {
        const { ModalActions } = this.props;
@@ -107,8 +98,14 @@ class App extends Component {
                     <SocialLoginButton onClick={() => handleAuth('google')} type="google"/>
                     <SocialLoginButton onClick={() => handleAuth('facebook')} type="facebook"/>
                 </LoginModal>
-              <LinkAccountModal visible={modal.getIn(['linkAccount', 'open'])} onHide={() => handleModal.close('linkAccount')} />
-                {children}
+
+                <LinkAccountModal 
+                    visible={modal.getIn(['linkAccount', 'open'])} 
+                    onHide={() => handleModal.close('linkAccount')} 
+                    existingProvider={modal.getIn(['linkAccount', 'existingProvider'])}
+                    provider={modal.getIn(['linkAccount', 'provider'])}
+                />
+                    {children}
                 <button onClick={() => logOut()}></button>
             </div>
         );

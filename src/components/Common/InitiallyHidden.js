@@ -2,9 +2,7 @@ import React from 'react';
 import onClickOutside from 'react-onclickoutside';
 
 class InitiallyHidden extends React.Component {
-    constructor(props){
-        super(props);
-    }
+   
 render(){
     return <div>.....loads of content ....</div>;
 }
@@ -14,6 +12,7 @@ handleClickOutside(){
 
 }
 const A = onClickOutside(InitiallyHidden);
+
 
 class UI extends React.Component {
     constructor(props){
