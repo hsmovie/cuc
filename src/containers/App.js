@@ -27,7 +27,6 @@ class App extends Component {
                     if(!user.exists()){ 
                        await users.createUserData(firebaseUser);
                     }
-                
                 console.log("you are logined in!", firebaseUser);
                 }else{
                     console.log("nono", );
@@ -80,10 +79,6 @@ class App extends Component {
        }
    })()
 
-
-   logOut = () => {
-       auth.logout();
-   }
     render() {
     const {children, status: {modal}} = this.props;
     const { handleAuth, logOut, handleModal } = this;
@@ -98,7 +93,6 @@ class App extends Component {
                     <SocialLoginButton onClick={() => handleAuth('google')} type="google"/>
                     <SocialLoginButton onClick={() => handleAuth('facebook')} type="facebook"/>
                 </LoginModal>
-
                 <LinkAccountModal 
                     visible={modal.getIn(['linkAccount', 'open'])} 
                     onHide={() => handleModal.close('linkAccount')} 
@@ -106,7 +100,7 @@ class App extends Component {
                     provider={modal.getIn(['linkAccount', 'provider'])}
                 />
                     {children}
-                <button onClick={() => logOut()}></button>
+                
             </div>
         );
     }

@@ -5,7 +5,7 @@
      return (
          
              <div className="brand-logo">
-                 BrandLogo
+                 CUC
              </div>
          
      );
