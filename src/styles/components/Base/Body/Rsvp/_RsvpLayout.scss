@@ -1,3 +1,15 @@
 .rsvp-wrapper{
-    background: black;
+     @mixin background($imgpath,$position:0 0,$repeat: no-repeat) {
+        background: {
+            image: url($imgpath);
+            position: $position;
+            repeat: $repeat;
+                    }
+                     width:500px;
+            height:500px;
+    }
+  
+  @include background('/style/images/wine_clash.jpg');
+    
+
 }

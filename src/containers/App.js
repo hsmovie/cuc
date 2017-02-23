@@ -17,22 +17,32 @@ const { SocialLoginButton } = LoginModal;
 import * as users from 'helpers/firebase/database/users';
 
 class App extends Component {
-
+    constructor(props){
+        super(props);
+        this.state = {
+            toggle: false
+        }
+    }
     componentDidMount(){
         auth.authStateChanged(
             async (firebaseUser) => {                
                 if(firebaseUser){
+                this.setState({toggle: true});
                     //confirm user's data exist,
                     const user = await users.findUserById(firebaseUser.uid);
                     if(!user.exists()){ 
                        await users.createUserData(firebaseUser);
+                       console.log("Loged in !" ,firebaseUser);
                     }
-                console.log("you are logined in!", firebaseUser);
                 }else{
-                    console.log("nono", );
+                    
                 }
             }
         );
+    }
+
+    toggleAuthButton(){
+        
     }
 
     handleAuth = async (provider) => {
@@ -54,8 +64,10 @@ class App extends Component {
                     modalName: 'linkAccount',
                     data:{
                         error: e,
+                        credential: e.credential,
                         provider,
                         existingProvider
+                        
                     }
                 });
             }
@@ -79,25 +91,41 @@ class App extends Component {
        }
    })()
 
+   handleLinkAccount = async () => {
+       const { status : { modal } } = this.props;
+       const credential = modal.getIn(['linkAccount', 'credential']);
+       const provider = modal.getIn(['linkAccount', 'existingProvider']);
+       const { handleModal } = this;
+       console.log(credential, provider);
+       await auth.linkAccount({credential, provider});
+
+       handleModal.close('linkAccount');
+   }
+
     render() {
     const {children, status: {modal}} = this.props;
-    const { handleAuth, logOut, handleModal } = this;
+    const { handleAuth, handleModal, handleLinkAccount } = this;
+
+    // const logoutToggle = this.state.toggle ? handleModal.open({modalName:'login'}) : auth.logout() ;
+
         return (
             <div>
                 <Header>
                     <SidebarButton />
                     <BrandLogo />
-                    <AuthButton onClick={() => handleModal.open({modalName:'login'})}/>
+                    <AuthButton onClick={() => handleModal.open({modalName:'login'})} toggle={this.state.toggle}/>
                 </Header> 
                 <LoginModal visible={modal.getIn(['login', 'open'])} onHide={() => handleModal.close('login')}>
                     <SocialLoginButton onClick={() => handleAuth('google')} type="google"/>
                     <SocialLoginButton onClick={() => handleAuth('facebook')} type="facebook"/>
                 </LoginModal>
+
                 <LinkAccountModal 
                     visible={modal.getIn(['linkAccount', 'open'])} 
                     onHide={() => handleModal.close('linkAccount')} 
                     existingProvider={modal.getIn(['linkAccount', 'existingProvider'])}
                     provider={modal.getIn(['linkAccount', 'provider'])}
+                    onLinkAccount={handleLinkAccount}
                 />
                     {children}
                 
