@@ -1,6 +1,6 @@
 import React from 'react';
 import BigLogo from './BigLogo';
-import RsvpLayout from './Rsvp/RsvpLayout';
+
 const Introduction = () => {
     return (
         <div className="introduction-wrapper">
@@ -11,7 +11,6 @@ const Introduction = () => {
                     <p>See you soon at CUC</p>
                 </div>
             </div>
-           <RsvpLayout/>
         </div>
     );
 };

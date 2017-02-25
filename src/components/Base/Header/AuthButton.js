@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import { Icon } from 'semantic-ui-react';
 
 const AuthButton = ({onClick, toggle}) => {

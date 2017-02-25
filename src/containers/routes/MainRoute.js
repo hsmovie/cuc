@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Introduction from 'components/Base/Body/Introduction';
+import Rsvp from 'components/Base/Body/Rsvp';
 class MainRoute extends Component {
 
    
@@ -8,6 +9,7 @@ class MainRoute extends Component {
          return (
             <div>
                 <Introduction/>
+                <Rsvp/>
             </div>
         );
     }

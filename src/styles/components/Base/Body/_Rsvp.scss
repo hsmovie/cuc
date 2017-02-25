@@ -1,0 +1,27 @@
+.rsvp-wrapper{
+    margin-top: 5rem;
+    height: 30rem;
+    width: 100%;
+    .rsvp-header{
+         margin:0 auto;
+         height: 4rem;
+         text-align: center;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        
+        background:red;
+    }
+    .rsvp-body{
+        margin:0 auto;
+         height: 25rem;
+         text-align: center;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        background: green;
+    }
+    @include media(">wide-desktop"){
+             .rsvp-header, .rsvp-body{
+                 width:1200px;
+            } 
+        }
+}

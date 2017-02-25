@@ -14,6 +14,9 @@ const initialState = Map({
     
     linkAccount: Map({
         open:false
+    }),
+    logout: Map({
+        open:false
     })
 }) 
 
@@ -28,8 +31,8 @@ export default handleActions({
     }
  */
 
-        //modalName을 받아서 페이로드에 주입
-        const { modalName, data } = action.payload;
+    //modalName을 받아서 페이로드에 주입
+      const { modalName, data } = action.payload;
         return state.mergeIn([modalName], {
             open: true,
             ...data

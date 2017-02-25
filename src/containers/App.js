@@ -4,15 +4,13 @@ import { bindActionCreators } from 'redux';
 
 import * as modal from 'redux/modules/base/modal'
 import auth from 'helpers/firebase/auth';
-
-// import LoginModal, { SocialLoginButton } from 'components/Base/LoginModal/LoginModal';
 // import LinkAccountModal from 'components/Base/LoginModal/LinkAccountModal';
 // load components
 // 로고는 헤더의 멍청한 컴포넌트에서 추출해 온것.
 import Header, {SidebarButton, BrandLogo, AuthButton} from 'components/Base/Header/Header';
 
 import * as Modals from 'components/Base/Modals';
-const { LoginModal, LinkAccountModal } = Modals;
+const { LoginModal, LinkAccountModal, LogoutModal } = Modals;
 const { SocialLoginButton } = LoginModal;
 import * as users from 'helpers/firebase/database/users';
 
@@ -23,6 +21,8 @@ class App extends Component {
             toggle: false
         }
     }
+
+
     componentDidMount(){
         auth.authStateChanged(
             async (firebaseUser) => {                
@@ -35,15 +35,15 @@ class App extends Component {
                        console.log("Loged in !" ,firebaseUser);
                     }
                 }else{
-                    
+                    //다시 토글을 스위칭해서 로그인 / 회원가입 버튼 나오게 만든다.
+                    this.setState({toggle: false});
+                    console.log('not loged in')
                 }
             }
         );
     }
 
-    toggleAuthButton(){
-        
-    }
+    
 
     handleAuth = async (provider) => {
         const {handleModal} = this;
@@ -74,23 +74,19 @@ class App extends Component {
         }
     }
 
-                    // auth.resolveDuplicate(error).then(
-                    //     (response) => {console.log(response)}
-                    // );
-    
-
    handleModal = ((modalName) => {
        const { ModalActions } = this.props;
        return {
            open:({modalName, data}) => {
                ModalActions.openModal({modalName, data});
-           },
+           }, 
            close: (modalName) => {
                ModalActions.closeModal(modalName);
            }
        }
-   })()
+   })();
 
+//Link Account
    handleLinkAccount = async () => {
        const { status : { modal } } = this.props;
        const credential = modal.getIn(['linkAccount', 'credential']);
@@ -101,24 +97,37 @@ class App extends Component {
 
        handleModal.close('linkAccount');
    }
+   
+   handleLogout = () => {
+       const {handleModal} = this;
+       auth.logout();
+       handleModal.close('logout');
+   }
+
+   
 
     render() {
-    const {children, status: {modal}} = this.props;
-    const { handleAuth, handleModal, handleLinkAccount } = this;
-
-    // const logoutToggle = this.state.toggle ? handleModal.open({modalName:'login'}) : auth.logout() ;
+    const { children, status: {modal} } = this.props;
+    const { handleAuth, handleModal, handleLinkAccount, handleLogout } = this;
+    //토글 스테이트를 보고 버튼에 어떤 함수를 보내줄지 알아냄.
+     const logoutToggle = this.state.toggle ? () => handleModal.open({modalName: 'logout'}) : () => handleModal.open({modalName:'login'}) ;
 
         return (
             <div>
                 <Header>
                     <SidebarButton />
                     <BrandLogo />
-                    <AuthButton onClick={() => handleModal.open({modalName:'login'})} toggle={this.state.toggle}/>
+                    <AuthButton onClick={logoutToggle} toggle={this.state.toggle}/>
                 </Header> 
                 <LoginModal visible={modal.getIn(['login', 'open'])} onHide={() => handleModal.close('login')}>
                     <SocialLoginButton onClick={() => handleAuth('google')} type="google"/>
                     <SocialLoginButton onClick={() => handleAuth('facebook')} type="facebook"/>
                 </LoginModal>
+                <LogoutModal
+                    visible={modal.getIn(['logout', 'open'])}
+                    onHide={() => handleModal.close('logout')}
+                    logout={() => handleLogout()}
+                />
 
                 <LinkAccountModal 
                     visible={modal.getIn(['linkAccount', 'open'])} 
