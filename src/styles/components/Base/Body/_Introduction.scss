@@ -1,7 +1,6 @@
 .introduction-wrapper {
-    height:auto;
+    height:92vh;
    
-
     .introduction {
         @import 'BigLogo';
         .introduction-description{
@@ -11,7 +10,6 @@
                 line-height: 1rem;
                 color: $oc-gray-9;
                 font-weight: 700;
-            
             }
         }
 

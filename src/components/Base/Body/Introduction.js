@@ -1,7 +1,11 @@
 import React from 'react';
 import BigLogo from './BigLogo';
-
+import { Image } from 'semantic-ui-react';
+import { wine1 } from 'styles/images';
 const Introduction = () => {
+
+    
+
     return (
         <div className="introduction-wrapper">
             <div className="introduction">
@@ -9,6 +13,7 @@ const Introduction = () => {
                 <div className="introduction-description">
                     <p>Don't just exist</p>
                     <p>See you soon at CUC</p>
+                    {wine1}
                 </div>
             </div>
         </div>
