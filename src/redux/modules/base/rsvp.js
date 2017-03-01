@@ -16,8 +16,7 @@ export function fetchRsvps() {
 
 
 export function createRsvp(data) {
-    const key = Math.floor((Math.random() * 10000000000));
- return dispatch => firebase.database().ref('rsvp').child(key).set(data);
+ return dispatch => firebase.database().ref('rsvp').child(Date.now()).set(data);
 }
 
 export function deleteRsvp(key) {

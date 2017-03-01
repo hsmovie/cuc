@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 
 import * as modal from 'redux/modules/base/modal'
 import auth from 'helpers/firebase/auth';
-import firebase from 'firebase';
 // import LinkAccountModal from 'components/Base/LoginModal/LinkAccountModal';
 // load components
 // 로고는 헤더의 멍청한 컴포넌트에서 추출해 온것.
