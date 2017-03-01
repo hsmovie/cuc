@@ -4,6 +4,8 @@ import Menu from './Menu';
 
 const Rsvp = () => {
 
+   
+
     const CardExampleGroups = () => (
         
     <div className="card-wrapper">
@@ -24,7 +26,6 @@ const Rsvp = () => {
             </div>
         </div>
     </div>
-    
 );
 
     return (

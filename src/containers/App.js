@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import * as modal from 'redux/modules/base/modal'
 import auth from 'helpers/firebase/auth';
+import firebase from 'firebase';
 // import LinkAccountModal from 'components/Base/LoginModal/LinkAccountModal';
 // load components
 // 로고는 헤더의 멍청한 컴포넌트에서 추출해 온것.
@@ -23,7 +24,7 @@ class App extends Component {
     }
 
 
-    componentDidMount(){
+    componentWillMount(){
         auth.authStateChanged(
             async (firebaseUser) => {                
                 if(firebaseUser){
@@ -37,7 +38,7 @@ class App extends Component {
                 }else{
                     //다시 토글을 스위칭해서 로그인 / 회원가입 버튼 나오게 만든다.
                     this.setState({toggle: false});
-                    console.log('not loged in')
+                    console.log('not loged in');
                 }
             }
         );
@@ -67,7 +68,6 @@ class App extends Component {
                         credential: e.credential,
                         provider,
                         existingProvider
-                        
                     }
                 });
             }
@@ -107,6 +107,7 @@ class App extends Component {
    
 
     render() {
+        
     const { children, status: {modal} } = this.props;
     const { handleAuth, handleModal, handleLinkAccount, handleLogout } = this;
     //토글 스테이트를 보고 버튼에 어떤 함수를 보내줄지 알아냄.
