@@ -6,11 +6,13 @@ import Rsvp from 'components/Base/Body/Rsvp';
 import Introduction from 'components/Base/Body/Introduction';
 // import * as rsvp from 'redux/modules/base/rsvp';
 import * as actions from 'redux/modules/base/rsvp';
+import {SectionsContainer, Section} from 'react-fullpage';
 class MainRoute extends Component {
 
     state = {
         title: "",
         body: ""
+        
     }
     
     componentWillMount() {
@@ -44,7 +46,7 @@ class MainRoute extends Component {
     render() {
           const {renderPosts, handleFormSubmit} = this;
         return (
-
+            
             <div> 
                 <Introduction/>
                 <RsvpForm
@@ -54,9 +56,7 @@ class MainRoute extends Component {
                     title={this.state.title}
                     body={this.state.body}
                 />    
-                 
-                    {renderPosts()}
-                 
+                {renderPosts()}
             </div>
         );
     }

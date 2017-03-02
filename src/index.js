@@ -5,18 +5,62 @@ import firebase from 'firebase';
 import firebaseConfig from '../config/firebase';
 //redux
 import configureStore from 'redux/configureStore';
-import Root from 'containers/Root';
-//router
-import {browserHistory} from 'react-router';
+import {Provider} from 'react-redux';
+// //router
+// import Root from 'containers/Root';
+// import {browserHistory} from 'react-router';
 
 firebase.initializeApp(firebaseConfig);
 
 const store = configureStore();
 const rootElement = document.getElementById('root');
 
-ReactDOM.render(
-  <Root store={store} history={browserHistory}/>
-    , rootElement);
+
+import {SectionsContainer, Section, Header, Footer} from 'react-fullpage';
+ 
+import App from 'containers/App'; 
+const Example = React.createClass({
+  render() {
+    let options = {
+      sectionClassName:     'section',
+      anchors:              ['sectionOne', 'sectionTwo', 'sectionThree'],
+      scrollBar:            true,
+      navigation:           true,
+      verticalAlign:        false,
+      arrowNavigation:      true,
+      sectionPaddingTop:    '4rem', // the section top padding 
+      delay:                400 // the scroll animation speed
+    };
+ 
+    return (
+      <Provider store={store}>
+      <div>
+        <Header>
+          <App/>
+        </Header>
+        <Footer>
+          <a href="">Dcoumentation</a>
+          <a href="">Example Source</a>
+          <a href="">About</a>
+        </Footer>
+        <SectionsContainer className="container" {...options}>
+          <Section className="custom-section" verticalAlign="true" color="#69D2E7">Page 1</Section>
+          <Section color="#A7DBD8">Page 2</Section>
+          <Section color="#E0E4CC">Page 3</Section>
+        </SectionsContainer>
+        </div>
+      </Provider>
+    );
+  }
+});
+ 
+ReactDOM.render(<Example/>, rootElement);
+
+
+
+// ReactDOM.render(
+//   <Root store={store} history={browserHistory}/>
+//     , rootElement);
 
 // ReactDOM.render((
 //   <AppContainer>

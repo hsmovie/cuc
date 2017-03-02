@@ -3,7 +3,7 @@ import _ from 'lodash';
 import * as types from './actionTypes'
 
 export function fetchRsvps() {
-    const Rsvp = firebase.database().ref().child('rsvp');
+    const Rsvp = firebase.database().ref().child('rsvp').limitToFirst(2);
   return dispatch => {
     Rsvp.on('value', snapshot => {
       dispatch({

@@ -37,7 +37,9 @@ const Rsvp = ({index, rsvp, handleDelete }) => {
 //       );
 //     });
 //   }
-
+if(rsvp === null){
+    return <div></div>
+}else{
     return (
         <div key={rsvp.toString()}>
             <p>{rsvp.title}</p>
@@ -46,6 +48,8 @@ const Rsvp = ({index, rsvp, handleDelete }) => {
             <hr/>
         </div>
     );
+}
+    
 };
 
 export default Rsvp;

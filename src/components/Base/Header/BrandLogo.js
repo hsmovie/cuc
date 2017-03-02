@@ -5,7 +5,7 @@
      return (
          
              <div className="brand-logo">
-                 CUC
+                 <a href="#sectionOne">CUC</a>
              </div>
          
      );
