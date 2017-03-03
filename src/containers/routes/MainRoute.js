@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 // import RsvpForm from 'components/Base/Body/RsvpForm';
 // import Rsvp from 'components/Base/Body/Rsvp';
 import Introduction from 'components/Base/Body/Introduction/Introduction';
-import RsvpLayout, {Rsvp, RsvpForm} from 'components/Base/Body/Rsvp/RsvpLayout';
+import RsvpLayout, {Rsvp, RsvpForm, RsvpTime} from 'components/Base/Body/Rsvp/RsvpLayout';
 // import * as rsvp from 'redux/modules/base/rsvp';
 import * as actions from 'redux/modules/base/rsvp';
 class MainRoute extends Component {
@@ -12,10 +12,7 @@ class MainRoute extends Component {
     state = {
         selected: false,
         title: "",
-        data:"",
-        day:"",
-        time:"",
-        month:""
+        time:""
     }
     
     componentWillMount() {
@@ -46,6 +43,7 @@ class MainRoute extends Component {
 
     render() {
           const {renderPosts, handleFormSubmit} = this;
+          
         return (
 
             <div> 
@@ -55,9 +53,10 @@ class MainRoute extends Component {
                     onSubmit={() => handleFormSubmit()}
                     handleTitle={(e) => this.setState({title:e.target.value})}
                     handleTime={(e) => this.setState({time:e.target.value})}
-                    
                     data={this.state}
-                />    
+                />
+                <RsvpTime/>
+                
                 <div>
                     {renderPosts()}
                 </div>

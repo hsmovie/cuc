@@ -5,7 +5,6 @@ const Rsvp = ({rsvp, handleDelete }) => {
 
     return (
         <div className="rsvp">
-            <span>{Date.now()}</span>
             <span className="title">{rsvp.title}</span>
             <span className="time">{rsvp.time}</span>
             <Button animated circular>
