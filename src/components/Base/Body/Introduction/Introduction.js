@@ -1,6 +1,5 @@
 import React from 'react';
 import BigLogo from './BigLogo';
-import { Image } from 'semantic-ui-react';
 import { wine1 } from 'styles/images';
 const Introduction = () => {
 
