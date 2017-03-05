@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Row, Col} from 'react-grid-system';
 const RsvpTime = () => {
     const d = new Date();
          
@@ -11,16 +11,41 @@ const RsvpTime = () => {
     const realDay = day[todayDay];
     const realMonth = month[todayMonth];
     const realDate = d.getDate();
+
     
   
     return (
-        <div className="rsvptime-wrapper">
-            <div className="rsvp-month">{realMonth}</div>
-            
+    
+        <Row className="rsvptime-wrapper">
+            <Col sm={6} className="rsvp-month">{realMonth}</Col>
+            <Col sm={6} className="rsvp-date-day">
+                <div className="dateAndday">
                 <span className="rsvp-date">{realDate}</span>
                 <span className="rsvp-day">{realDay}</span>
+                </div>
+                <div className="dateAndday">
+                <span className="rsvp-date">6</span>
+                <span className="rsvp-day">Sunday</span>
+                </div>
+                <div className="dateAndday">
+                <span className="rsvp-date">6</span>
+                <span className="rsvp-day">Sunday</span>
+                </div>
+                <div className="dateAndday">
+                <span className="rsvp-date">7</span>
+                <span className="rsvp-day">Monday</span>
+                </div>
+                <div className="dateAndday">
+                <span className="rsvp-date">7</span>
+                <span className="rsvp-day">Monday</span>
+                </div>
+                <div className="dateAndday">
+                <span className="rsvp-date">7</span>
+                <span className="rsvp-day">Monday</span>
+                </div>
+            </Col>
             
-        </div>
+        </Row>
     );
 };
 

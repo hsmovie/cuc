@@ -1,14 +1,26 @@
 .rsvptime-wrapper {
-    width:30%;
-    float:left;
+
     .rsvp-month{
-        float:left;
         font-size: 2rem;
-        color: $oc-gray-8;
-        border:soild 1px;
-        margin-right:5.5rem;
-    }
-    .rsvp-month-day{
+        color: $oc-gray-7;
         
     }
+    
+    .rsvp-date-day{
+        .rsvp-date{
+            font-size:3rem;
+            color:$oc-gray-7;
+            
+        }
+
+        .rsvp-day{
+            font-size:0.7rem;
+            color:$oc-gray-9;
+        }
+
+        .dateAndday + .dateAndday {
+            padding-top:11rem;
+        }
+    }
+   
 }

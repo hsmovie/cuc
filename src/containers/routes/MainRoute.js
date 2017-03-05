@@ -5,9 +5,11 @@ import {connect} from 'react-redux';
 // import Rsvp from 'components/Base/Body/Rsvp';
 import Introduction from 'components/Base/Body/Introduction/Introduction';
 import RsvpLayout, {Rsvp, RsvpForm, RsvpTime} from 'components/Base/Body/Rsvp/RsvpLayout';
+import {Container, Row, Col} from 'react-grid-system';
 // import * as rsvp from 'redux/modules/base/rsvp';
 import * as actions from 'redux/modules/base/rsvp';
 class MainRoute extends Component {
+
 
     state = {
         selected: false,
@@ -48,6 +50,7 @@ class MainRoute extends Component {
 
             <div> 
                 <Introduction/>
+                
                 <RsvpLayout>
                 <RsvpForm
                     onSubmit={() => handleFormSubmit()}
@@ -55,11 +58,16 @@ class MainRoute extends Component {
                     handleTime={(e) => this.setState({time:e.target.value})}
                     data={this.state}
                 />
+                <Container>
+                <Row>
+                <Col sm={4}>
                 <RsvpTime/>
-                
-                <div>
+                </Col>
+                <Col sm={8}>
                     {renderPosts()}
-                </div>
+                </Col>
+                </Row>
+                </Container>
                 </RsvpLayout>
             </div>
         );
