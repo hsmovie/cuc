@@ -5,16 +5,12 @@ const Rsvp = ({rsvp, handleDelete }) => {
 
     return (
         <div className="rsvp">
-            <Button animated circular>
-                <Button.Content visible>Go?</Button.Content>
-                <Button.Content hidden>
-                     <Icon name='right arrow' />
-                </Button.Content>
-            </Button>
+            <Button circular  size='big' icon='checkmark'/>
+
             <span className="title">{rsvp.title}</span>
             <span className="time">{rsvp.time}</span>
+            <span className="people">{rsvp.people}</span>
             <Button  onClick={handleDelete}>DELETE</Button>
-            <hr/>
         </div>
     );
 };

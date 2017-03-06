@@ -12,6 +12,10 @@
         @import'RsvpForm';
         @import'RsvpTime';
         @import'Rsvp';
-
+        .rsvp + .rsvp {
+            padding-top: 2.5rem;
+            
+        
+        }
     }
 }

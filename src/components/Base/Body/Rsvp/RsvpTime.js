@@ -17,7 +17,9 @@ const RsvpTime = () => {
     return (
     
         <Row className="rsvptime-wrapper">
-            <Col sm={6} className="rsvp-month">{realMonth}</Col>
+            <Col sm={6}>
+                <div className="rsvp-month">{realMonth}</div>
+            </Col>
             <Col sm={6} className="rsvp-date-day">
                 <div className="dateAndday">
                 <span className="rsvp-date">{realDate}</span>

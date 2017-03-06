@@ -14,7 +14,8 @@ class MainRoute extends Component {
     state = {
         selected: false,
         title: "",
-        time:""
+        time:"",
+        people:0,
     }
     
     componentWillMount() {
@@ -56,6 +57,7 @@ class MainRoute extends Component {
                     onSubmit={() => handleFormSubmit()}
                     handleTitle={(e) => this.setState({title:e.target.value})}
                     handleTime={(e) => this.setState({time:e.target.value})}
+                    
                     data={this.state}
                 />
                 <Container>
