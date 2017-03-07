@@ -9,8 +9,6 @@ import {Container, Row, Col} from 'react-grid-system';
 // import * as rsvp from 'redux/modules/base/rsvp';
 import * as actions from 'redux/modules/base/rsvp';
 class MainRoute extends Component {
-
-
     state = {
         selected: false,
         title: "",
@@ -31,9 +29,13 @@ class MainRoute extends Component {
        this.props.deleteRsvp(key);
     }
 
-  renderPosts = () => {
+  renderRsvps = () => {
     const {handleDelete} = this;
-    return _.map(this.props.rsvps, (rsvp, id) => {
+    console.log(this.props.rsvp);
+    const d = new Date();
+    const todayYear = String(d.getFullYear());
+    const todayDate = String(d.getDate());
+    return _.map(this.props.rsvp, (rsvp, id) => {
       return (
           <Rsvp 
             handleDelete={() => handleDelete(id)}
@@ -45,7 +47,7 @@ class MainRoute extends Component {
   }
 
     render() {
-          const {renderPosts, handleFormSubmit} = this;
+          const {renderRsvps, handleFormSubmit} = this;
           
         return (
 
@@ -66,7 +68,9 @@ class MainRoute extends Component {
                 <RsvpTime/>
                 </Col>
                 <Col sm={8}>
-                    {renderPosts()}
+                <ul>
+                    {renderRsvps()}
+                </ul>
                 </Col>
                 </Row>
                 </Container>
@@ -77,6 +81,6 @@ class MainRoute extends Component {
 }
 
 function mapStateToProps(state) {
-    return {rsvps:state.base.rsvps};
+    return state.base;
 }
 export default connect(mapStateToProps, actions)(MainRoute); 

@@ -7,18 +7,24 @@
     }
     
     .rsvp-date-day{
+        
         .rsvp-date{
             font-size:3rem;
             color:$oc-gray-7;
+               
+         
         }
 
         .rsvp-day{
             font-size:0.7rem;
             color:$oc-gray-9;
+            
+         
+            
         }
 
         .dateAndday + .dateAndday {
-            padding-top:11rem;
+            padding-top:18rem;
         }
     }
    

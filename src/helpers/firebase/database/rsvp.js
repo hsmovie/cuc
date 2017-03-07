@@ -22,3 +22,4 @@ export function createRsvp(data) {
 export function deleteRsvp(key) {
   return firebase.database().ref().child('rsvp').child(key).remove();
 }
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Row, Col} from 'react-grid-system';
+import firebase from 'firebase';
 const RsvpTime = () => {
     const d = new Date();
          
@@ -12,13 +13,15 @@ const RsvpTime = () => {
     const realMonth = month[todayMonth];
     const realDate = d.getDate();
 
-    
-  
+//    const Rsvp = firebase.database().ref('rsvp').child(3).limitToFirst(10).once('value', data => {
+//    });
+   
+   
     return (
     
         <Row className="rsvptime-wrapper">
             <Col sm={6}>
-                <div className="rsvp-month">{realMonth}</div>
+                <span className="rsvp-month">{realMonth}</span>
             </Col>
             <Col sm={6} className="rsvp-date-day">
                 <div className="dateAndday">

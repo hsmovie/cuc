@@ -1,0 +1,125 @@
+{
+  "rsvp": {
+    "201737M":{
+        "people" : 0,
+        "selected" : false,
+        "time" : "10:30~12:00AM",
+        "title" : "아침세션",
+        "day": "Tuesday",
+        "date": "7"
+    },
+    "201737L":{
+      "people" : 0,
+      "selected" : false,
+      "time" : "01:00~02:30PM",
+      "title" : "점심세션",
+      "day": "Tuesday",
+      "date": "7"
+    },
+    "201737N":{
+      "people" : 0,
+      "selected" : false,
+             "time" : "07:30PM~",
+           "title" : "저녘세션",
+              "day": "Tuesday",
+              "date": "7"
+    },
+    "201738N":{
+      "people" : 0,
+               "selected" : false,
+               "time" : "07:30PM~",
+               "title" : "저녘세션",
+               "day": "Wednesday",
+               "date": "8"
+    },
+    "201739M": {
+      "people" : 0,
+               "selected" : false,
+               "time" : "10:30~12:00AM",
+               "title" : "아침세션",
+               "day": "Thursday",
+               "date": "9"
+
+    },
+    "201739L": {
+       "people" : 0,
+               "selected" : false,
+               "time" : "01:00~02:30PM",
+               "title" : "점심세션",
+               "day": "Thursday",
+               "date": "9"
+    },
+    "201739N": {
+        "people" : 0,
+               "selected" : false,
+               "time" : "07:30PM~",
+               "title" : "저녘세션",
+               "day": "Thursday",
+               "date": "9"
+    },
+    "2017310N": {
+       "people" : 0,
+               "selected" : false,
+               "time" : "07:30PM~",
+               "title" : "네트워킹 파티",
+               "day": "Friday",
+               "date": "10"
+    },
+    "2017311M": {
+         "people" : 0,
+               "selected" : false,
+               "time" : "10:30~12:00AM",
+               "title" : "아침세션",
+               "day": "Saturday",
+               "date": "11"
+    },
+    "2017311L": {
+        "people" : 0,
+               "selected" : false,
+               "time" : "03:00~05:00PM",
+               "title" : "점심세션",
+               "day": "Saturday",
+               "date": "11"
+    },
+    "2017312M": {
+        "people" : 0,
+               "selected" : false,
+               "time" : "10:30~12:00AM",
+               "title" : "아침세션",
+               "day": "Sunday",
+               "date": "12"
+    },
+    "2017312L": {
+      "people" : 0,
+               "selected" : false,
+               "time" : "03:00~05:00PM",
+               "title" : "점심세션",
+               "day": "Sunday",
+               "date": "12"
+    },
+    "2017312N": {
+        "people" : 0,
+               "selected" : false,
+               "time" : "07:30PM~",
+               "title" : "무비나이트",
+               "day": "Sunday",
+               "date": "12"
+    }
+  },
+
+  
+
+
+  "usersjPJXxdTuA8MAtv74MkYsbQElaxV2" : {
+    "displayName" : "HANSOO KIM",
+    "email" : "vvhansoovv@gmail.com",
+    "photoURL" : "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+  },
+  "usersza679decGmehr2LiKFhdDaxV2Qf2" : {
+    "displayName" : "HANSOO KIM",
+    "email" : "vvhansoovv@gmail.com",
+    "photoURL" : "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+  }
+
+
+}
