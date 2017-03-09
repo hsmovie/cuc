@@ -1,8 +1,7 @@
 import React from 'react';
-export { default as RsvpForm } from './RsvpForm';
-export { default as Rsvp } from './Rsvp';
-export { default as RsvpTime } from './RsvpTime';
 
+export { default as Rsvp } from './Rsvp';
+export { default as RsvpOne } from './RsvpOne';
 
 const RsvpLayout = ({children}) => {
     return (

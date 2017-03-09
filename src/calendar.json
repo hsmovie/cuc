@@ -2,7 +2,7 @@
   "rsvp" : {
     "3" : {
         "8":{
-           "night": {
+           "201738a": {
                "people" : 0,
                "selected" : false,
                "time" : "07:30PM~",
@@ -11,21 +11,21 @@
            }
         },
         "9":{
-          "morning": {
+          "201739a": {
                "people" : 0,
                "selected" : false,
                "time" : "10:30~12:00AM",
                "title" : "아침세션",
                "day": "Thursday"
            },
-          "lunch": {
+          "201739b": {
                "people" : 0,
                "selected" : false,
                "time" : "01:00~02:30PM",
                "title" : "점심세션",
                "day": "Thursday"
           },
-          "night": {
+          "201739c": {
                "people" : 0,
                "selected" : false,
                "time" : "07:30PM~",
