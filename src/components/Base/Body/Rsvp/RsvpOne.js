@@ -5,7 +5,19 @@ import * as actions from 'redux/modules/base/rsvp';
 import Rsvp from './Rsvp';
 import _ from 'lodash';
 import firebase from 'firebase';
-import $ from "jquery";
+
+var arr = [ {"id":"10", "class": "child-of-9"}, {"id":"11", "classd": "child-of-10"}];
+
+for (var i = 0; i < arr.length; i++){
+    var obj = arr[i];
+    console.log(obj);
+    for (var key in obj){
+        var attrName = key;
+        console.log(attrName);
+        var attrValue = obj[key];
+        console.log(attrValue);
+    }
+}
 
 
 class RsvpOne extends Component {
