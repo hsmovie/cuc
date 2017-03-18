@@ -1,54 +1,59 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import * as rsvp from 'redux/modules/base/rsvp';
+
+import _ from 'lodash';
+
 // import RsvpForm from 'components/Base/Body/RsvpForm';
 // import Rsvp from 'components/Base/Body/Rsvp';
 import Introduction from 'components/Base/Body/Introduction/Introduction';
-import RsvpLayout, { RsvpOne } from 'components/Base/Body/Rsvp/RsvpLayout';
-
+import RsvpLayout, { RsvpOne, RsvpTwo, RsvpThree } from 'components/Base/Body/Rsvp/RsvpLayout';
 
 // import * as rsvp from 'redux/modules/base/rsvp';
-import * as actions from 'redux/modules/base/rsvp';
 class MainRoute extends Component {
-    state = {
-        selected: false,
-        title: "",
-        time:"",
-        people:0
-    }
     
-    componentWillMount() {
+//    componentWillMount() {
+//       this.props.getFirstRsvps();
+//    }
+
+   
+
+//     handleDelete = (key) => {
+//        this.props.deleteRsvp(key);
+//     }
+
+//     handleCheck = (user, id) => {
+//         console.log(user);
+//         this.props.addPhotoAndPeople(user, id);
+//     }
+
+//     handleUnCheck = (user, id) => {
+//         this.props.deletePhotoAndPoeple(user, id);
+        
+//     }
+
     
-  }
 
-  
-
-    handleFormSubmit = () => {
-        this.props.createRsvp(this.state);
-    }
-
-    
-
-
-  
     render() {
-          const { handleFormSubmit} = this;
+    
         return (
 
             <div> 
                 <Introduction/>
                 
                 <RsvpLayout>
-                
                 <RsvpOne/>
-
+                <RsvpTwo/>
+                <RsvpThree/>
                 </RsvpLayout>
             </div>
         );
     }
 }
-
-function mapStateToProps(state) {
-    return state.base;
+const mapStateToProps = (state) => {
+  return { 
+      rsvp: state.base.rsvp.rsvp
+ };
 }
-export default connect(mapStateToProps, actions)(MainRoute); 
+export default connect(mapStateToProps, rsvp)(MainRoute);

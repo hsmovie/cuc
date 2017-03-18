@@ -18,7 +18,7 @@ const initialState = Map({
     logout: Map({
         open:false
     })
-}) 
+});
 
 export default handleActions({
     //위에서 정의되있는 액션타입에 들어갈 값에 prefix가 들어있기 때문에 대괄호를 쳐줘야 한다.

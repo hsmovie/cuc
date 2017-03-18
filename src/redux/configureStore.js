@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
 import ReduxThunk from 'redux-thunk';
 
-//모듈들 불러오기 
+ //모듈들 불러오기 
 import base from './modules/base';
 // configure middleware
 const middlewares = [promiseMiddleware(), ReduxThunk];

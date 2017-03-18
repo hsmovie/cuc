@@ -1,18 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import firebase from 'firebase';
-import firebaseConfig from '../config/firebase';
+import fireabseConfig from '../config/firebase';
+
+
 //redux
 import configureStore from 'redux/configureStore';
 import Root from 'containers/Root';
 //router
 import {browserHistory} from 'react-router';
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(fireabseConfig);
 
 const store = configureStore();
 const rootElement = document.getElementById('root');
+
+
 
 ReactDOM.render(
   <Root store={store} history={browserHistory}/>

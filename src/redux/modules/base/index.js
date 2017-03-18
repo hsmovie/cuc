@@ -6,7 +6,7 @@ import rsvp from './rsvpReducer';
 const base = combineReducers({
     header,
     modal,
-   rsvp
+    rsvp
 });
 
 export default base ;

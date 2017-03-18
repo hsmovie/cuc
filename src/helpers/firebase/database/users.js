@@ -1,12 +1,12 @@
 import * as firebase from 'firebase';
 
 export function findUserById(uid) {
-    return firebase.database().ref('/users/' + uid).once('value');
+    return firebase.database().ref('users/' + uid).once('value');
 }
 
 export function createUserData(users){
    const {uid, email, photoURL, displayName} = users;
-   return firebase.database().ref('users' + uid).set({
+   return firebase.database().ref('/users/' + uid).set({
          email,
          photoURL, 
          displayName

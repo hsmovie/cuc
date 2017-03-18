@@ -7,7 +7,7 @@ import {MainRoute, AuthRoute} from 'containers/routes/index';
 const Routes = ({history}) => (
  <Router history={history}>
       <Route path="/" component={App}>
-            <IndexRoute component={MainRoute}/>
+             <IndexRoute component={MainRoute}/>
             <Route path="/auth" component={AuthRoute}/> 
         </Route>
   </Router>

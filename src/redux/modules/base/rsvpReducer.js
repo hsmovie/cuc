@@ -1,7 +1,10 @@
 import _ from 'lodash';
 import * as types from './actionTypes';
 
-export default function(state = {}, action) {
+const initialState = {
+  
+}
+export default function(state = initialState, action) {
   switch (action.type) {
     case types.RSVP_FETCH:
       return action.payload;
@@ -10,13 +13,22 @@ export default function(state = {}, action) {
     case types.RSVP_DELETE:
       return _.omit(state, action.payload);
     case types.RSVP_GET_FIRST:
-      return action.payload;
+     
+      return {...state, rsvp:action.payload};
+
     case types.RSVP_GET_SECOND:
-      return action.payload;
+      return {...state, rsvpTwo:action.payload};
     case types.RSVP_GET_THRID:
-      return action.payload;
+      return {...state, rsvpThree:action.payload};
     case types.RSVP_UPDATE:
       return action.payload;
+    case types.RSVP_CHECK:
+    console.log("WTF");
+      return action.payload;
+    case types.RSVP_UNCHECK:
+      return action.payload;
+   case types.RSVP_CHECKING_PHOTOANDPEOPLE:
+      return action.payload;     
     default:
       return state;
   }
