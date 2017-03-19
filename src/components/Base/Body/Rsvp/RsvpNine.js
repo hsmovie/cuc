@@ -5,14 +5,13 @@ import Rsvp from './Rsvp';
 import {connect} from 'react-redux';
 import * as rsvp from 'redux/modules/base/rsvp';
 
-
-class RsvpTwo extends Component {
+class RsvpNine extends Component {
     componentWillMount() {
-        this.props.getSecondRsvps();
+        this.props.getNinthRsvps();
     }
 
     handleDelete = (key) => {
-       this.props.deleteRsvp(key, this.props.dateData.month, this.props.dateData.date);
+       this.props.deleteRsvp(key, this.props.dateData.month, this.props.dateData.month);
     }
 
     renderRsvps = () => {
@@ -36,12 +35,12 @@ class RsvpTwo extends Component {
 
     render() {
         const {renderRsvps} = this;
-
+    
         return (
             <Container className="rsvp-wrapper">
                 <Row>
-                    <Col sm={2} xs={2} className="rsvp-month">{this.props.dateData.render_month}</Col>
-                    <Col sm={2} xs={2}>
+                    <Col sm={2} className="rsvp-month">{this.props.dateData.render_month}</Col>
+                    <Col sm={2}>
                         <div className="rsvp-date">
                             {this.props.dateData.date}
                         </div>
@@ -53,7 +52,6 @@ class RsvpTwo extends Component {
                           {renderRsvps()}
                     </Col>
                 </Row>
-                
             </Container>
         );
     }
@@ -61,7 +59,7 @@ class RsvpTwo extends Component {
 
 const mapStateToProps = (state) => {
   return { 
-      rsvp: state.base.rsvp.rsvpTwo
+      rsvp: state.base.rsvp.rsvpNine
  };
 }
-export default connect(mapStateToProps, rsvp)(RsvpTwo);
+export default connect(mapStateToProps, rsvp)(RsvpNine);

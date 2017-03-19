@@ -1,13 +1,47 @@
 .rsvp{
-    transform: translate(0, -10px);
-  .time{
-      font-size:1.2rem;
+    transform: translate(0, -8px);
+  .goButton{
+  
+    color: #FFF;
+    background: $oc-gray-5;
+
+&:before,
+&:after {
+    
+    position: absolute;
+    top: 0.67em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: .4s,opacity .6s;
+    -moz-transition: .4s,opacity .6s;
+    -o-transition: .4s,opacity .6s;
+    transition: .4s,opacity .6s;
+}
+
   }
-  .people {
-       text-align: right;
+  .time{
+      margin-left:1rem;
+      font-size:1.2rem;
+      letter-spacing: 1.3px;
   }
   .dltButton{
       float:right;
       font-size:0.7rem;
+  }
+  .pictures-wraaper{
+      .pictures{
+      display: inline;
+      transform: translate(0, -5px);
+      margin-left: 1rem;
+  }
+  }
+  
+  .number {
+      font-size:1.2rem;
+      font-weight: 700;
+      margin-right:1rem;
+      float: right;
   }
 }

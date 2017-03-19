@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Button, Image } from 'semantic-ui-react';
+import { Button, Image, Label } from 'semantic-ui-react';
 import React, { Component } from 'react';
 
 import firebase from 'firebase';
@@ -13,11 +13,8 @@ class Rsvp extends Component {
 
     componentWillMount(){
         
-        const d = new Date();
-        const todayMonth = d.getMonth()+1;
-        // const todayDate = d.getDate();
         const uid = firebase.auth().currentUser;
-        firebase.database().ref('rsvp').child(todayMonth).child(18).child(this.props.index).child('people')
+        firebase.database().ref('rsvp').child(this.props.month).child(this.props.date).child(this.props.index).child('people')
         .once('value', (snap) => {
             if(snap.val() !== null){
                 snap.forEach( (childSnap) => {
@@ -34,14 +31,14 @@ class Rsvp extends Component {
     
     handleCheck = (user, id) => {
         const uid = firebase.auth().currentUser;
-        rsvpdb.addPhotoAndPeople(uid, this.props.index);
+        rsvpdb.addPhotoAndPeople(uid, this.props.index, this.props.month, this.props.date);
         this.setState({
             buttonToggle:true
         });
     }
     handleUnCheck = (user, id) => {
         const uid = firebase.auth().currentUser;
-        rsvpdb.deletePhotoAndPoeple(uid, this.props.index);
+        rsvpdb.deletePhotoAndPoeple(uid, this.props.index, this.props.month, this.props.date);
         this.setState({
             buttonToggle:false
         });
@@ -51,7 +48,7 @@ class Rsvp extends Component {
         return _.map(this.props.rsvp.people, (people, index) => {
         
       return (
-           <Image key={index} floated="right" size="mini" shape="circular" src={people.photo}/>
+           <Image key={index} className="pictures" size="mini" shape="circular" src={people.photo}/>
           
       );
     });
@@ -60,22 +57,35 @@ class Rsvp extends Component {
     render() {
         
         const {handleUnCheck, handleCheck, renderPhotos} = this;
+        const checkButton = {
+            transition: "all .5s",
+            backgroundColor: "#219945"
+            
+        }
         return (
          <div className="rsvp" id={this.props.index}>
             <Button 
-                circular size='big' 
-                icon='checkmark' 
+                circular 
+                size='big' 
                 active={this.state.buttonToggle} 
                 onClick={this.state.buttonToggle ? (user, id) => handleUnCheck(user, id) : (user, id) =>handleCheck(user, id) }
+                icon="checkmark"
+                style={this.state.buttonToggle ? checkButton : null}
+                className="goButton"
+                data-hover="Go?"
             />
+           
             <span className="time">{this.props.rsvp.time}</span>
-            <span className="people">{this.props.rsvp.number}</span>
-            <span>
+            
+            <span className="pictures-wraaper">
                 {renderPhotos()}
-                
             </span>
             
             <Button  className="dltButton" onClick={this.props.handleDelete}>DELETE</Button>
+            <span className="number">
+                <Label circular size="big">+{this.props.rsvp.number}</Label>
+            </span>
+            
         </div>
         );
     }
@@ -83,14 +93,3 @@ class Rsvp extends Component {
 
 export default Rsvp;
 
-// import React from 'react';
-
-// const Rsvp = () => {
-//     return (
-//         <div>
-            
-//         </div>
-//     );
-// };
-
-// export default Rsvp;

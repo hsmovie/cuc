@@ -20,15 +20,21 @@ export default function(state = initialState, action) {
       return {...state, rsvpTwo:action.payload};
     case types.RSVP_GET_THRID:
       return {...state, rsvpThree:action.payload};
-    case types.RSVP_UPDATE:
-      return action.payload;
-    case types.RSVP_CHECK:
-    console.log("WTF");
-      return action.payload;
-    case types.RSVP_UNCHECK:
-      return action.payload;
-   case types.RSVP_CHECKING_PHOTOANDPEOPLE:
-      return action.payload;     
+    
+    case types.RSVP_GET_FOUR:
+      return {...state, rsvpFour:action.payload};
+    case types.RSVP_GET_FIVE:
+      return {...state, rsvpFive:action.payload};
+    case types.RSVP_GET_SIX:
+      return {...state, rsvpSix:action.payload};
+    case types.RSVP_GET_SEVEN:
+      return {...state, rsvpSeven:action.payload};
+    case types.RSVP_GET_EIGHT:
+      return {...state, rsvpEight:action.payload};
+    case types.RSVP_GET_NINE:
+      return {...state, rsvpNine:action.payload};
+    case types.RSVP_GET_TEN:
+      return {...state, rsvpTen:action.payload};
     default:
       return state;
   }

@@ -8,22 +8,20 @@ import * as rsvp from 'redux/modules/base/rsvp';
 class RsvpThree extends Component {
     componentWillMount() {
         this.props.getThirdRsvps();
+        
     }
 
     handleDelete = (key) => {
-        const d = new Date();
-        const todayMonth = d.getMonth()+1;
-        const todayDate = d.getDate();
-       this.props.deleteRsvp(key, todayMonth + 2, todayDate + 2);
+        
+       this.props.deleteRsvp(key, this.props.dateData.month, this.props.dateData.date);
     }
 
     renderRsvps = () => {
     const {handleDelete} = this;
-    // const d = new Date();
-    // const todayDate = d.getDate();
-    // const todayMonth = d.getMonth()+1;
+    
     
     return _.map(this.props.rsvp, (rsvp, index) => {
+        
       return (
           
           <Rsvp 
@@ -31,6 +29,8 @@ class RsvpThree extends Component {
             handleDelete={() => handleDelete(index)}
             rsvp={rsvp} 
             index={index}
+            date={this.props.dateData.date}
+            month={this.props.dateData.month}
           />
       );
     });
@@ -38,16 +38,17 @@ class RsvpThree extends Component {
 
     render() {
         const {renderRsvps} = this;
+        
         return (
             <Container className="rsvp-wrapper">
                 <Row>
-                    <Col sm={2} className="rsvp-month"></Col>
+                    <Col sm={2} className="rsvp-month">{this.props.dateData.render_month}</Col>
                     <Col sm={2}>
                         <div className="rsvp-date">
-                            7
+                            {this.props.dateData.date}
                         </div>
                         <div className="rsvp-day">
-                            Tuesday
+                            {this.props.dateData.day}
                         </div>
                     </Col>
                     <Col sm={8} className="rsvp-content">

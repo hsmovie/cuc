@@ -4,7 +4,7 @@ import _ from 'lodash';
 import Rsvp from './Rsvp';
 import {connect} from 'react-redux';
 import * as rsvp from 'redux/modules/base/rsvp';
-
+import * as rsvpdb from 'helpers/firebase/database/rsvp';
 class RsvpOne extends Component {
     
     componentWillMount() {
@@ -20,12 +20,11 @@ class RsvpOne extends Component {
 
     renderRsvps = () => {
     const {handleDelete} = this;
-    // const d = new Date();
-    // const todayDate = d.getDate();
-    // const todayMonth = d.getMonth()+1;
+    const d = new Date();
+    const todayDate = d.getDate();
+    const todayMonth = d.getMonth()+1;
     
     return _.map(this.props.rsvp, (rsvp, index) => {
-        
       return (
           
           <Rsvp 
@@ -33,6 +32,8 @@ class RsvpOne extends Component {
             handleDelete={() => handleDelete(index)}
             rsvp={rsvp} 
             index={index}
+            date={todayDate}
+            month={todayMonth}
           />
       );
     });
@@ -43,25 +44,29 @@ class RsvpOne extends Component {
     render() {
         const {renderRsvps} = this;
         const d = new Date();
-        const todayMonth = d.getMonth()+1;
+        const todayMonth = d.getMonth();
         const todayDate = d.getDate();
-        
+        const todayDay = d.getDay();
+        const monthAndDay = rsvpdb.getDate(todayMonth, todayDay, todayDate);
+        const monthFilter = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec.", ".Jan."];
+        const realMonth = monthFilter[todayMonth];
         return (
             <Container className="rsvp-wrapper">
                 <Row>
-                    <Col sm={2} className="rsvp-month">{todayMonth}</Col>
-                    <Col sm={2}>
+                    <Col sm={2} xs={2} className="rsvp-month">{realMonth}</Col>
+                    <Col sm={2} xs={2}>
                         <div className="rsvp-date">
-                            {todayDate}
+                            {monthAndDay.date}
                         </div>
                         <div className="rsvp-day">
-                            Tuesday
+                            {monthAndDay.day}
                         </div>
                     </Col>
-                    <Col sm={8} className="rsvp-content">
+                    <Col sm={8}  xs={8} className="rsvp-content">
                           {renderRsvps()}
                     </Col>
                 </Row>
+                
             </Container>
         );
     }
