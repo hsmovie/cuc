@@ -1,6 +1,5 @@
 .rsvplayout-wrapper{
-    background: $oc-red-2;
-    
+    background: $oc-red-3;
     width:100%;
     .rsvplayout{
     padding-bottom: 1.5rem;
@@ -12,10 +11,16 @@
         @import 'RsvpForm';
         @import 'RsvpOne';
         @import 'Rsvp';
+       
         .rsvp + .rsvp {
             padding-top: 2.5rem;
-            
-        
         }
     }
+
+@include media("<tablet"){
+     .rsvplayout{
+   
+     width:100%;
+  }
+}
 }

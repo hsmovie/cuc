@@ -12,7 +12,7 @@ export function addPhotoAndPeople(user, id, month, date) {
   
   firebase.database().ref('rsvp').child(month).child(date).child(id)
   .child('people/'+user.uid).set({
-    photo: user.photoURL
+    photo : user.photoURL
   }).then(myRef.transaction( (current_value) => {
   return (current_value || 0) + 1;
 }));

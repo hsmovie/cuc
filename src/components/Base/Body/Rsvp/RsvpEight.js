@@ -38,22 +38,20 @@ class RsvpEight extends Component {
         const {renderRsvps} = this;
     
         return (
-            <Container className="rsvp-wrapper">
-                <Row>
-                    <Col sm={2} className="rsvp-month">{this.props.dateData.render_month}</Col>
-                    <Col sm={2}>
+          <div className="rsvp-wrapper row">
+                    <span className="rsvp-month col-2">{this.props.dateData.render_month}</span>
+                    <span className="col-2">
                         <div className="rsvp-date">
                             {this.props.dateData.date}
                         </div>
                         <div className="rsvp-day">
-                            {this.props.dateData.day}
+                           {this.props.dateData.day}
                         </div>
-                    </Col>
-                    <Col sm={8} className="rsvp-content">
+                    </span>
+                    <span className="rsvp-content col-8">
                           {renderRsvps()}
-                    </Col>
-                </Row>
-            </Container>
+                    </span>
+            </div>
         );
     }
 }

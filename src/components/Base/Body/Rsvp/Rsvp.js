@@ -25,7 +25,7 @@ class Rsvp extends Component {
                 .child(this.props.date)
                 .child(this.props.index)
                 .child('people')
-                .once('value', (snap) => {
+                .on('value', (snap) => {
                     if (snap.val() !== null) {
                         snap.forEach((childSnap) => {
                             if (childSnap.key === uid.uid) {
@@ -61,7 +61,11 @@ class Rsvp extends Component {
     }
 
     renderPhotos = () => {
-        if (_.size(this.props.rsvp.people) > 7) {
+        
+        if(window.innerWidth < 450){
+            return null;
+        }
+        if (_.size(this.props.rsvp.people) > 6) {
             let pictures = {};
             firebase
                 .database()
@@ -70,9 +74,10 @@ class Rsvp extends Component {
                 .child(this.props.date)
                 .child(this.props.index)
                 .child('people')
-                .limitToFirst(7)
+                .orderByChild('time')
+                .limitToFirst(6)
                 .once('value', snap => {
-                    console.log(snap.val());
+                    
                     pictures = snap.val();
                 });
             return _.map(pictures, (people, index) => {
@@ -102,15 +107,16 @@ class Rsvp extends Component {
     // <Image floated="right" size="mini" shape="circular"
     // src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4
     // 2 52rscbv5M/photo.jpg"/>
+
+    // <Button className="dltButton" onClick={this.props.handleDelete}>DELETE</Button>
     render() {
         const {handleUnCheck, handleCheck, renderPhotos} = this;
         const checkButton = {
             transition: "all .5s",
-            backgroundColor: "#219945",
-            fontSize: "1.3rem"
+            backgroundColor: "#219945"
         }
 
-        let manyPickturesToggle = _.size(this.props.rsvp.people) > 7;
+        let manyPickturesToggle = _.size(this.props.rsvp.people) > 6;
 
         return (
             <div className="rsvp" id={this.props.index}>
@@ -137,9 +143,9 @@ class Rsvp extends Component {
                         : null}
                 </div>
 
-                <Button className="dltButton" onClick={this.props.handleDelete}>DELETE</Button>
-                <span className="number">
-                    <Label circular size="big">+{this.props.rsvp.number}</Label>
+                
+                <span>
+                    <Label circular size="big" className="number">+{this.props.rsvp.number}</Label>
                 </span>
 
             </div>

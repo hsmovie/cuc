@@ -1,5 +1,5 @@
 .rsvp-wrapper {
-    margin-bottom: 3rem;
+    
     .rsvp-month{
         font-size:2.5rem;
         color:$oc-gray-6;
@@ -16,5 +16,24 @@
         text-align: center;
         font-size: 0.9rem;
     }
+    .rsvp-content{
+        
+    }
+    
+    @include media("<tablet"){
+      .rsvp-month{
+        font-size:1rem;
+    }
+        .rsvp-date {
+        font-size:17px;
+       
+    }
+     .rsvp-day {
+         padding-top:0;
+        font-size: 4pt;
+     }
+    }
+   
+
 }
 

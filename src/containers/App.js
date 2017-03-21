@@ -107,7 +107,7 @@ class App extends Component {
     render() {
         
     const { status: {modal} } = this.props;
-    console.log(this.props.children)
+    
     const { handleAuth, handleModal, handleLinkAccount, handleLogout } = this;
     
     //토글 스테이트를 보고 버튼에 어떤 함수를 보내줄지 알아냄.

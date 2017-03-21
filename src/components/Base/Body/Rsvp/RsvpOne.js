@@ -1,14 +1,37 @@
 import React, { Component } from 'react';
-import {Container, Row, Col} from 'react-grid-system';
+
 import _ from 'lodash';
 import Rsvp from './Rsvp';
 import {connect} from 'react-redux';
 import * as rsvp from 'redux/modules/base/rsvp';
 import * as rsvpdb from 'helpers/firebase/database/rsvp';
+import firebase from 'firebase';
 class RsvpOne extends Component {
     
     componentWillMount() {
         this.props.getFirstRsvps();
+        firebase
+                .database()
+                .ref('rsvp')
+                .child(3)
+                .child(21)
+                .child("2017321N")
+                .child('people')
+                .once('value', snap => {
+                    console.log(snap.val());
+                });
+
+         firebase
+                .database()
+                .ref('rsvp')
+                .child(3)
+                .child(21)
+                .child("2017321N")
+                .child('people')
+                .orderByValue()
+                .once('value', snap => {
+                    console.log(snap.val());
+                });
     }
 
     handleDelete = (key) => {
@@ -23,7 +46,7 @@ class RsvpOne extends Component {
     const d = new Date();
     const todayDate = d.getDate();
     const todayMonth = d.getMonth()+1;
-    console.log(this.props.loginModal);
+  
     return _.map(this.props.rsvp, (rsvp, index) => {
       return (
           
@@ -53,23 +76,20 @@ class RsvpOne extends Component {
         const monthFilter = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec.", ".Jan."];
         const realMonth = monthFilter[todayMonth];
         return (
-            <Container className="rsvp-wrapper">
-                <Row>
-                    <Col sm={2} xs={2} className="rsvp-month">{realMonth}</Col>
-                    <Col sm={2} xs={2}>
+            <div className="rsvp-wrapper row">
+                    <span className="rsvp-month col-2">{realMonth}</span>
+                    <span className="col-2">
                         <div className="rsvp-date">
                             {monthAndDay.date}
                         </div>
                         <div className="rsvp-day">
                             {monthAndDay.day}
                         </div>
-                    </Col>
-                    <Col sm={8}  xs={8} className="rsvp-content">
+                    </span>
+                    <span className="rsvp-content col-8">
                           {renderRsvps()}
-                    </Col>
-                </Row>
-                
-            </Container>
+                    </span>
+            </div>
         );
     }
 }

@@ -17,20 +17,20 @@ import _ from 'lodash';
 // import Rsvp from 'components/Base/Body/Rsvp';
 import Introduction from 'components/Base/Body/Introduction/Introduction';
 import RsvpLayout, { RsvpOne, RsvpTwo, RsvpThree, RsvpFour, RsvpFive, RsvpSix, RsvpSeven, RsvpEight, RsvpNine, RsvpTen } from 'components/Base/Body/Rsvp/RsvpLayout';
-
 import firebase from 'firebase';
 class MainRoute extends Component {
     
     exam12 = () => {
         firebase.database().ref('rsvp/3/21/2017321M/people').push({
-            photo: "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+            photo: "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg",
+            time: Date.now()
         });
     }
      
 
     
     render() {
-        const {exam12} = this
+        const {exam12} = this;
         const d = new Date();
         const todayMonth = d.getMonth();
         
@@ -43,14 +43,14 @@ class MainRoute extends Component {
              dateData[i] = rsvpdb.getDate(todayMonth, todayDay, todayDate);
              
         }
-
+        
         return (
 
             <div> 
                 <Introduction/>
                 
                 <RsvpLayout>
-                <button onClick={() => exam12()}>click</button>
+                <button onClick={() => exam12()}>Click    </button>
                 <RsvpOne loginModal={this.props.loginModal}/>
                 <RsvpTwo dateData={dateData[1]} loginModal={this.props.loginModal}/>
                 <RsvpThree dateData={dateData[2]} loginModal={this.props.loginModal}/>
