@@ -23,18 +23,20 @@ class RsvpOne extends Component {
     const d = new Date();
     const todayDate = d.getDate();
     const todayMonth = d.getMonth()+1;
-    
+    console.log(this.props.loginModal);
     return _.map(this.props.rsvp, (rsvp, index) => {
       return (
           
           <Rsvp 
             key={index}
             handleDelete={() => handleDelete(index)}
+            modal={this.props.loginModal}
             rsvp={rsvp} 
             index={index}
             date={todayDate}
             month={todayMonth}
           />
+          
       );
     });
     }

@@ -20,7 +20,7 @@ export default function(state = initialState, action) {
       return {...state, rsvpTwo:action.payload};
     case types.RSVP_GET_THRID:
       return {...state, rsvpThree:action.payload};
-    
+      
     case types.RSVP_GET_FOUR:
       return {...state, rsvpFour:action.payload};
     case types.RSVP_GET_FIVE:

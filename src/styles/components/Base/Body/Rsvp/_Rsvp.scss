@@ -31,10 +31,13 @@
       font-size:0.7rem;
   }
   .pictures-wraaper{
-      .pictures{
       display: inline;
+      .pictures{
+      
+      display: inline-block;
       transform: translate(0, -5px);
       margin-left: 1rem;
+      
   }
   }
   

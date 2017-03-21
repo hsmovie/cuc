@@ -28,6 +28,7 @@ class RsvpEight extends Component {
             index={index}
             date={this.props.dateData.date}
             month={this.props.dateData.month}
+            modal={this.props.loginModal}
           />
       );
     });

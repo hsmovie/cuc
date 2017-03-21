@@ -1,9 +1,9 @@
 import firebase from 'firebase';
-
+import _ from 'lodash';
 
 const d = new Date();
 const todayMonth = d.getMonth()+1;
-const todayDate = d.getDate()
+
 
 export function addPhotoAndPeople(user, id, month, date) {
   console.log("im in the addPhotoAndPeople method", id);
@@ -79,6 +79,8 @@ export function checkTomorrowRsvps(month, date, day){
       }
   });
 }
+
+
 
 export function checkDaySwitch(month, date, day){
   const Rsvp = firebase

@@ -8,9 +8,9 @@ import auth from 'helpers/firebase/auth';
 // load components
 // 로고는 헤더의 멍청한 컴포넌트에서 추출해 온것.
 import Header, {SidebarButton, BrandLogo, AuthButton} from 'components/Base/Header/Header';
-
+import MainRoute from './routes/MainRoute';
 import * as Modals from 'components/Base/Modals';
-const { LoginModal, LinkAccountModal, LogoutModal } = Modals;
+const { LoginModal, LinkAccountModal, LogoutModal } = Modals; 
 const { SocialLoginButton } = LoginModal;
 import * as users from 'helpers/firebase/database/users';
 
@@ -71,6 +71,7 @@ class App extends Component {
                 });
             }
         }
+        window.location.reload();
     }
 
    handleModal = ((modalName) => {
@@ -103,12 +104,12 @@ class App extends Component {
        handleModal.close('logout');
    }
 
-   
-
     render() {
         
-    const { children, status: {modal} } = this.props;
+    const { status: {modal} } = this.props;
+    console.log(this.props.children)
     const { handleAuth, handleModal, handleLinkAccount, handleLogout } = this;
+    
     //토글 스테이트를 보고 버튼에 어떤 함수를 보내줄지 알아냄.
      const logoutToggle = this.state.toggle ? () => handleModal.open({modalName: 'logout'}) : () => handleModal.open({modalName:'login'}) ;
 
@@ -136,7 +137,10 @@ class App extends Component {
                     provider={modal.getIn(['linkAccount', 'provider'])}
                     onLinkAccount={handleLinkAccount}
                 />
-                    {children}
+                
+                <MainRoute 
+                    loginModal={() => handleModal.open({modalName:'login'})}
+                />
             </div>
         );
     }

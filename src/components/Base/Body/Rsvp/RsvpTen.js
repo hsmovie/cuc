@@ -27,6 +27,7 @@ class RsvpTen extends Component {
             rsvp={rsvp} 
             index={index}
             date={this.props.dateData.date}
+            modal={this.props.loginModal}
             month={this.props.dateData.month}
           />
       );

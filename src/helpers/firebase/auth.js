@@ -8,12 +8,15 @@ const auth = (function(){
     return {
            google: () => {
         return firebase.auth().signInWithPopup(providers.google);
+        
         },
         facebook: () => {
         return firebase.auth().signInWithPopup(providers.facebook);
+        
         },
         logout: () => {
             firebase.auth().signOut();
+            window.location.reload();
         },
         getExistingProvider: async (email) => {
             const existingProviders = await firebase.auth().fetchProvidersForEmail(email);
