@@ -66,7 +66,7 @@ class Rsvp extends Component {
             return null;
         }
         if (_.size(this.props.rsvp.people) > 6) {
-            let pictures = {};
+            let pictures = [];
             firebase
                 .database()
                 .ref('rsvp')
@@ -75,22 +75,35 @@ class Rsvp extends Component {
                 .child(this.props.index)
                 .child('people')
                 .orderByChild('time')
-                .limitToFirst(6)
+                .limitToLast(6)
                 .once('value', snap => {
-                    
-                    pictures = snap.val();
+                    snap.forEach(data => {
+                        pictures.push(data.val().photo);
+                        
+                    });
+                    pictures.reverse();
                 });
-            return _.map(pictures, (people, index) => {
-
-                return (
-                    <Image
-                        key={index}
+               return _.map(pictures, (photo) => {
+                   return (
+                      <Image
+                        key={photo.toString()}
                         className="pictures"
                         size="mini"
                         shape="circular"
-                        src={people.photo}></Image>
-                );
-            });
+                        src={photo}></Image> 
+                   );
+               });
+            // return _.map(pictures, (people, index) => {
+
+            //     return (
+            //         <Image
+            //             key={index}
+            //             className="pictures"
+            //             size="mini"
+            //             shape="circular"
+            //             src={people.photo}></Image>
+            //     );
+            // });
 
         } else {
             return _.map(this.props.rsvp.people, (people, index) => {
@@ -119,8 +132,9 @@ class Rsvp extends Component {
         let manyPickturesToggle = _.size(this.props.rsvp.people) > 6;
 
         return (
-            <div className="rsvp" id={this.props.index}>
-                <Button
+            <div className="rsvp row" id={this.props.index}>
+                <div className="goButton-wrapper">
+                    <Button
                     circular
                     size='big'
                     active={this.state.buttonToggle}
@@ -128,24 +142,31 @@ class Rsvp extends Component {
                     ? (user, id) => handleUnCheck(user, id)
                     : (user, id) => handleCheck(user, id)}
                     icon="checkmark"
+                    className="goButton"
                     style={this.state.buttonToggle
                     ? checkButton
                     : null}
-                    className="goButton"
+                    
                     data-hover="Go?"/>
+                
+                
+                </div>
+                
 
                 <span className="time">{this.props.rsvp.time}</span>
 
                 <div className="pictures-wraaper">
                     {renderPhotos()}
                     {manyPickturesToggle
-                        ? <Icon name="ellipsis horizontal"/>
+                        ? <Icon name="ellipsis horizontal" />
                         : null}
                 </div>
-
                 
-                <span>
-                    <Label circular size="big" className="number">+{this.props.rsvp.number}</Label>
+                
+                <span className="number-wrapper">
+                    <Label circular size="big" className="number">
+                    +{this.props.rsvp.number}
+                    </Label>
                 </span>
 
             </div>

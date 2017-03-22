@@ -1,39 +1,69 @@
+.rsvp-month, .rsvp-dateAndDay-wrapper, .rsvp-content{
+    // border: 1px solid red;
+    padding: 15px;
+}
 .rsvp-wrapper {
     
     .rsvp-month{
+        
+        width: 16.66%;
+        float: left;
         font-size:2.5rem;
         color:$oc-gray-6;
         text-align: right;
     }
-    .rsvp-date {
+    .rsvp-dateAndDay-wrapper{
+        width: 16.66%;
+        float: left;
+        text-align: center;
+.rsvp-date {
+        
+        
         color:$oc-gray-9;
         font-size:3.5rem;
         font-weight: 500;
-        text-align: center;
-    }
-    .rsvp-day {
-        padding-top: 10px;
-        text-align: center;
-        font-size: 0.9rem;
-    }
-    .rsvp-content{
         
     }
+    .rsvp-day {
+        
+
+        padding-top: 10px;
     
-    @include media("<tablet"){
-      .rsvp-month{
-        font-size:1rem;
+        font-size: 0.9rem;
     }
+    }
+    .rsvp-content{
+        width: 66.66%;
+        float: left;
+    }
+}
+ @include media("<desktop"){
+     .rsvp-wrapper{
+         
+         .rsvp-month{
+              width: 16.66%;
+        float: left;
+        font-size:23px;
+    }
+    .rsvp-dateAndDay-wrapper{
+ width: 16.66%;
+        float: left;
         .rsvp-date {
-        font-size:17px;
+        font-size:27px;
        
     }
      .rsvp-day {
          padding-top:0;
-        font-size: 4pt;
+        font-size: 10px;
+        
      }
     }
-   
-
-}
+    .rsvp-content{
+         width: 66.66%;
+        float: left;
+    }
+     }
+      
+        
+    }
 

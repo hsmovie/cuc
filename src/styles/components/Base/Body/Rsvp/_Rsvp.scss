@@ -1,10 +1,11 @@
 .rsvp{
+    
     transform: translate(0, -8px);
-  .goButton{
-  
-    color: #FFF;
-    background: $oc-gray-5;
-
+   .goButton-wrapper{
+       .goButton{
+        background: $oc-gray-5;
+        color: #FFF;
+    
 &:before,
 &:after {
     
@@ -21,10 +22,13 @@
 }
 
   }
+   } 
+  
   .time{
       margin-left:1rem;
       font-size:1.2rem;
       letter-spacing: 1.3px;
+      line-height: 3rem;
   }
   .dltButton{
       float:right;
@@ -32,13 +36,23 @@
   }
   .pictures-wraaper{
       display: inline;
+      
       .pictures{
       
-      display: inline;
+      display: inline-flex;
       transform: translate(0, -5px);
       margin-left: 1rem;   
+      }
   }
-  }
+
+  @include media("<desktop"){
+    .pictures-wraaper{
+      display: none;
+      
+    }
+}
+
+  
   
   .number {
       font-size:1.2rem;
@@ -47,31 +61,61 @@
       float: right;
   }
 }
-@include media("<tablet"){
+
+@include media(">desktop"){
+    .rsvp{
+        .goButton-wrapper{
+            float: left;
+            width: 7.33%;
+        }
+        .time{
+            float: left;
+            width: 16.66%;
+        }
+        .pictures-wraaper{
+            float: left;
+            width: 50%;
+        }
+       
+        .number{
+            float: left;
+            width: 7.33%;
+        }
+     
+    }
+}
+
+
+@include media("<desktop"){
     .rsvp{
 
     transform: translate(0, -4px);
       .time{
-      font-size:12px;   
+       float: left;
+       width: 50%;   
+      font-size:14px;   
       margin-left:0;
-  }
-  .goButton{
-      font-size:0.9rem;
-  }
-  
-  .dltButton{
-      font-size:0.7rem;
-  }
-  .pictures-wraaper{
-      .pictures{
-      font-size:5px;
-  }
-  }
-  
-  .number {
-      font-size:0.9rem;;
+      
+      line-height: 30px;
       
   }
+  .goButton-wrapper{
+       float: left;
+       width: 16.66%;
+        .goButton{
+            
+            font-size:0.9rem;
+        }
+  }
+  .number-wrapper{
+     
+       .number {
+      
+      font-size:14px;;
+      
+  }
+  }
+ 
 
     }
   }

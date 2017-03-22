@@ -15,7 +15,11 @@ firebase.initializeApp(fireabseConfig);
 const store = configureStore();
 const rootElement = document.getElementById('root');
 
-window.setTimeout('window.location.reload()', 5000000);
+window.setTimeout( () => {
+  window.location.reload();
+}
+  
+  , 5000000);
 
 
 ReactDOM.render(

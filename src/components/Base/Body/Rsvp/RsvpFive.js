@@ -39,16 +39,16 @@ class RsvpFive extends Component {
     
         return (
            <div className="rsvp-wrapper row">
-                    <span className="rsvp-month col-2">{this.props.dateData.render_month}</span>
-                    <span className="col-2">
+                    <span className="rsvp-month">{this.props.dateData.render_month}</span>
+                    <span className="rsvp-dateAndDay-wrapper">
                         <div className="rsvp-date">
                             {this.props.dateData.date}
                         </div>
                         <div className="rsvp-day">
-                           {this.props.dateData.day}
+                            {this.props.dateData.day}
                         </div>
                     </span>
-                    <span className="rsvp-content col-8">
+                    <span className="rsvp-content">
                           {renderRsvps()}
                     </span>
             </div>

@@ -5,33 +5,11 @@ import Rsvp from './Rsvp';
 import {connect} from 'react-redux';
 import * as rsvp from 'redux/modules/base/rsvp';
 import * as rsvpdb from 'helpers/firebase/database/rsvp';
-import firebase from 'firebase';
+
 class RsvpOne extends Component {
     
     componentWillMount() {
-        this.props.getFirstRsvps();
-        firebase
-                .database()
-                .ref('rsvp')
-                .child(3)
-                .child(21)
-                .child("2017321N")
-                .child('people')
-                .once('value', snap => {
-                    console.log(snap.val());
-                });
-
-         firebase
-                .database()
-                .ref('rsvp')
-                .child(3)
-                .child(21)
-                .child("2017321N")
-                .child('people')
-                .orderByValue()
-                .once('value', snap => {
-                    console.log(snap.val());
-                });
+        this.props.getFirstRsvps();   
     }
 
     handleDelete = (key) => {
@@ -77,8 +55,8 @@ class RsvpOne extends Component {
         const realMonth = monthFilter[todayMonth];
         return (
             <div className="rsvp-wrapper row">
-                    <span className="rsvp-month col-2">{realMonth}</span>
-                    <span className="col-2">
+                    <span className="rsvp-month">{realMonth}</span>
+                    <span className="rsvp-dateAndDay-wrapper">
                         <div className="rsvp-date">
                             {monthAndDay.date}
                         </div>
@@ -86,7 +64,7 @@ class RsvpOne extends Component {
                             {monthAndDay.day}
                         </div>
                     </span>
-                    <span className="rsvp-content col-8">
+                    <span className="rsvp-content">
                           {renderRsvps()}
                     </span>
             </div>
