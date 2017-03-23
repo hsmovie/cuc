@@ -43,14 +43,14 @@ class Rsvp extends Component {
             .auth()
             .currentUser;
         if (uid === null) {
-            
+
             this
                 .props
                 .modal();
-        }else{
+        } else {
             rsvpdb.addPhotoAndPeople(uid, this.props.index, this.props.month, this.props.date);
             this.setState({buttonToggle: true});
-        }   
+        }
     }
     handleUnCheck = (user, id) => {
         const uid = firebase
@@ -61,8 +61,8 @@ class Rsvp extends Component {
     }
 
     renderPhotos = () => {
-        
-        if(window.innerWidth < 450){
+
+        if (window.innerWidth < 450) {
             return null;
         }
         if (_.size(this.props.rsvp.people) > 6) {
@@ -79,31 +79,23 @@ class Rsvp extends Component {
                 .once('value', snap => {
                     snap.forEach(data => {
                         pictures.push(data.val().photo);
-                        
+
                     });
                     pictures.reverse();
                 });
-               return _.map(pictures, (photo) => {
-                   return (
-                      <Image
+            return _.map(pictures, (photo) => {
+                return (
+                    <Image
                         key={photo.toString()}
                         className="pictures"
                         size="mini"
                         shape="circular"
-                        src={photo}></Image> 
-                   );
-               });
-            // return _.map(pictures, (people, index) => {
-
-            //     return (
-            //         <Image
-            //             key={index}
-            //             className="pictures"
-            //             size="mini"
-            //             shape="circular"
-            //             src={people.photo}></Image>
-            //     );
-            // });
+                        src={photo}></Image>
+                );
+            });
+            // return _.map(pictures, (people, index) => {     return (         <Image
+            //       key={index}             className="pictures"             size="mini"
+            //          shape="circular"             src={people.photo}></Image>     ); });
 
         } else {
             return _.map(this.props.rsvp.people, (people, index) => {
@@ -119,9 +111,8 @@ class Rsvp extends Component {
     }
     // <Image floated="right" size="mini" shape="circular"
     // src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4
-    // 2 52rscbv5M/photo.jpg"/>
-
-    // <Button className="dltButton" onClick={this.props.handleDelete}>DELETE</Button>
+    // 2 52rscbv5M/photo.jpg"/> <Button className="dltButton"
+    // onClick={this.props.handleDelete}>DELETE</Button>
     render() {
         const {handleUnCheck, handleCheck, renderPhotos} = this;
         const checkButton = {
@@ -130,43 +121,47 @@ class Rsvp extends Component {
         }
 
         let manyPickturesToggle = _.size(this.props.rsvp.people) > 6;
-
+        let noPickturesToggle;
+        if (_.size(this.props.rsvp.people) === 0) {
+            noPickturesToggle = true;
+        } else {
+            noPickturesToggle = false;
+        }
         return (
             <div className="rsvp row" id={this.props.index}>
                 <div className="goButton-wrapper">
                     <Button
-                    circular
-                    size='big'
-                    active={this.state.buttonToggle}
-                    onClick={this.state.buttonToggle
-                    ? (user, id) => handleUnCheck(user, id)
-                    : (user, id) => handleCheck(user, id)}
-                    icon="checkmark"
-                    className="goButton"
-                    style={this.state.buttonToggle
-                    ? checkButton
-                    : null}
-                    
-                    data-hover="Go?"/>
-                
-                
+                        circular
+                        size='big'
+                        active={this.state.buttonToggle}
+                        onClick={this.state.buttonToggle
+                        ? (user, id) => handleUnCheck(user, id)
+                        : (user, id) => handleCheck(user, id)}
+                        icon="checkmark"
+                        className="goButton"
+                        style={this.state.buttonToggle
+                        ? checkButton
+                        : null}
+                        data-hover="Go?"/>
+
                 </div>
-                
 
                 <span className="time">{this.props.rsvp.time}</span>
 
                 <div className="pictures-wraaper">
                     {renderPhotos()}
                     {manyPickturesToggle
-                        ? <Icon name="ellipsis horizontal" />
+                        ? <Icon name="ellipsis horizontal"/>
                         : null}
                 </div>
-                
-                
+
                 <span className="number-wrapper">
-                    <Label circular size="big" className="number">
-                    +{this.props.rsvp.number}
-                    </Label>
+                    {noPickturesToggle
+                        ? null
+                        : <Label circular size="big" className="number">
+                            +{this.props.rsvp.number}
+                        </Label>}
+
                 </span>
 
             </div>

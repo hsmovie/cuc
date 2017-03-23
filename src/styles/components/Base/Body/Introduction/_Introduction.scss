@@ -1,16 +1,113 @@
+
+
 .introduction-wrapper {
+// background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(bg.png) repeat 0 0, url('./images/wine.png') repeat 0 0;
+// background: -moz-linear-gradient(top, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
+// background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.5)), color-stop(100%,rgba(255,255,255,0.5))), url('./images/wine.png') repeat 0 0;
+// background: -webkit-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
+// background: -o-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
+// background: -ms-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
+background: linear-gradient(to bottom, rgba(55,0,0,0.6) 0%,rgba(180,33,33,0.6) 100%) repeat 0 0;
+
     
-   
     .introduction {
-        @import 'BigLogo';
+        
         .introduction-description{
-            text-align: center;
-            margin-top:3rem;
-            p {
-                line-height: 1rem;
-                color: $oc-gray-9;
-                font-weight: 700;
+            
+            border: 2px solid red;
+            .welcome-wrapper{
+                height:70vh;
+                border: 2px solid red;
+
+                  .welcoming-sentences{
+                      
+                      padding-top:12rem;
+                      text-align: center;
+                    &.fadeInLeft{
+                        -webkit-animation-duration: 1.5s;
+                        animation-duration: 1.5s;
+                        -webkit-animation-fill-mode: both;
+                        animation-fill-mode: both;
+                    }
+                    .cuc{
+                        padding-top: 5rem;
+                        border: 10px solid white;
+                        text-align: center;
+                        padding-bottom:5rem;
+                        font-weight: 900;
+                        color:white;
+                        font-size: 5rem;
+                        letter-spacing: 30px;
+                    }
+                    .second-line{
+
+                    }
+                    .third-line{
+
+                    }
+                }
             }
+
+            .buttons-wrapper{
+                height:23vh;
+                border: 2px solid red;
+                text-align: center;
+                
+                .leftButton{
+                    border: 2px solid red;
+                    padding-top: 2rem;
+                    float:left;
+                    width:33.33%;
+                    height:100%;
+                    transition: all 0.2s;
+                    &:hover{
+                        background-color:$oc-pink-4;
+                        font-size:1.2rem;
+                    }
+                    a{
+                        color:$oc-gray-9;
+                    }
+                    
+                 
+                }
+                .centerButton{
+                    
+                    border: 2px solid red;
+                    padding-top: 2rem;
+                    
+                    float:left;
+                    width:33.33%;
+                    height:100%;
+                    transition: all 0.2s;
+                    
+                    a{
+                        color:$oc-gray-9;
+                    }
+                     &:hover{
+                        background-color:$oc-pink-4;
+                        font-size:1.2rem;
+                    }
+                    
+                }
+                .rightButton{
+                    border: 2px solid red;
+                    padding-top: 2rem;
+                    
+                    float:left;
+                    width:33.33%;
+                    height:100%;
+                    transition: all 0.2s;
+                    
+                    a{
+                        color:$oc-gray-9;
+                    }
+                     &:hover{
+                        background-color:$oc-pink-4;
+                        font-size:1.2rem;
+                    }
+                }
+            }
+
         }
 
     }

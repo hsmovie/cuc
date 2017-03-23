@@ -44,16 +44,6 @@
       margin-left: 1rem;   
       }
   }
-
-  @include media("<desktop"){
-    .pictures-wraaper{
-      display: none;
-      
-    }
-}
-
-  
-  
   .number {
       font-size:1.2rem;
       font-weight: 700;
@@ -107,6 +97,10 @@
             font-size:0.9rem;
         }
   }
+   .pictures-wraaper{
+      display: none;
+      
+    }
   .number-wrapper{
      
        .number {

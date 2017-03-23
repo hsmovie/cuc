@@ -16,6 +16,7 @@ import _ from 'lodash';
 // import RsvpForm from 'components/Base/Body/RsvpForm';
 // import Rsvp from 'components/Base/Body/Rsvp';
 import Introduction from 'components/Base/Body/Introduction/Introduction';
+import Footer from 'components/Base/Footer/Footer';
 import RsvpLayout, { RsvpOne, RsvpTwo, RsvpThree, RsvpFour, RsvpFive, RsvpSix, RsvpSeven, RsvpEight, RsvpNine, RsvpTen } from 'components/Base/Body/Rsvp/RsvpLayout';
 
 class MainRoute extends Component {
@@ -55,8 +56,9 @@ class MainRoute extends Component {
                 <RsvpEight dateData={dateData[7]} loginModal={this.props.loginModal}/>
                 <RsvpNine dateData={dateData[8]} loginModal={this.props.loginModal} />
                 <RsvpTen dateData={dateData[9]} loginModal={this.props.loginModal}/>
-                 
+                
                 </RsvpLayout>
+                <Footer/>
             </div>
         );
     }

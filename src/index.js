@@ -15,6 +15,18 @@ firebase.initializeApp(fireabseConfig);
 const store = configureStore();
 const rootElement = document.getElementById('root');
 
+const initialTime = new Date();
+const checkSessionTimeout = () => {
+    let minutes = Math.abs((initialTime - new Date()) / 1000 / 60);
+    if (minutes > 30) {
+        window.location.reload(); 
+    } 
+};
+
+
+
+setInterval(checkSessionTimeout, 1000);
+
 window.setTimeout( () => {
   window.location.reload();
 }
