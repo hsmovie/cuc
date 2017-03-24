@@ -187,6 +187,7 @@ export function getTenthRsvps() {
     .ref('rsvp')
     .child(dateData[9].month)
     .child(dateData[9].date);
+    console.log(dateData[10].month, dateData[10].date, dateData[10].day);
     rsvpdb.checkTomorrowRsvps(dateData[10].month, dateData[10].date, dateData[10].day);
   return dispatch => {
     Rsvp.on('value', snap => {

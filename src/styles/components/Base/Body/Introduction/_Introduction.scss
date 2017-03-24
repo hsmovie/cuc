@@ -1,114 +1,138 @@
-
-
 .introduction-wrapper {
-// background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(bg.png) repeat 0 0, url('./images/wine.png') repeat 0 0;
-// background: -moz-linear-gradient(top, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
-// background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.5)), color-stop(100%,rgba(255,255,255,0.5))), url('./images/wine.png') repeat 0 0;
-// background: -webkit-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
-// background: -o-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
-// background: -ms-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
-background: linear-gradient(to bottom, rgba(55,0,0,0.6) 0%,rgba(180,33,33,0.6) 100%) repeat 0 0;
-
+    // background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(bg.png) repeat 0 0, url('./images/wine.png') repeat 0 0;
+    // background: -moz-linear-gradient(top, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
+    // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.5)), color-stop(100%,rgba(255,255,255,0.5))), url('./images/wine.png') repeat 0 0;
+    // background: -webkit-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
+    // background: -o-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
+    // background: -ms-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
+    // background: linear-gradient(to bottom, rgba(13,0,0,0.6) 0%,rgba(150,33,33,0.6) 100%) repeat 0 0;
+    background: linear-gradient(to bottom, rgba(13, 0, 0, 0.8) 0%, rgba(150, 33, 33, 0.8) 100%) repeat 0 0;
     
     .introduction {
-        
-        .introduction-description{
-            
-            border: 2px solid red;
-            .welcome-wrapper{
-                height:70vh;
-                border: 2px solid red;
-
-                  .welcoming-sentences{
-                      
-                      padding-top:12rem;
-                      text-align: center;
-                    &.fadeInLeft{
-                        -webkit-animation-duration: 1.5s;
-                        animation-duration: 1.5s;
-                        -webkit-animation-fill-mode: both;
-                        animation-fill-mode: both;
-                    }
-                    .cuc{
+        .introduction-description {
+            // border: 2px solid red;
+            .welcome-wrapper {
+                height: 70vh;
+                // border: 2px solid red;
+                .welcoming-sentences {
+                    padding-top: 5.5rem;
+                    text-align: center;
+                    .cuc {
+                        width:80%;
+                        margin-left:10%;
+                        margin-right:10%;
+                        display: block;
                         padding-top: 5rem;
-                        border: 10px solid white;
+                        padding-bottom: 5rem;
+                        padding-left:3rem;
+                        padding-right:3rem;
                         text-align: center;
-                        padding-bottom:5rem;
+                        margin-bottom: 3rem;
                         font-weight: 900;
-                        color:white;
-                        font-size: 5rem;
-                        letter-spacing: 30px;
+                        color: #efeaea;
+                        font-size: 2rem;
+                        letter-spacing: 15px;
+                        line-height: 50px;
+                        border-top: 5px solid #efeaea;
+                        border-bottom: 5px solid #efeaea;
+                         animation: fadein 1s;
+                         .cucFirst{
+                             animation: fadein 2s;
+                         }
+                         .cucSecond{
+                             animation: fadein 3s;
+                         }
+
+                    }           
+            
+                    .second-line {
+                        
+                        display:inline-block;
+                        width:20%;
+                        letter-spacing: 3px;
+                        padding-top: 1rem;
+                        padding-bottom:1rem;
+                        margin-right:2rem;
+                        font-size:1.5rem;
+                        color: #f2dede;
+                        animation: fadein 4s;
+                        border-top: 2px solid #f2dede;
+                        border-bottom: 2px solid #f2dede;
                     }
-                    .second-line{
+
+                    .third-line {
+                        width:20%;
+                        display:inline-block;
+                        letter-spacing: 3px;
+                        padding-top: 1rem;
+                        padding-bottom:1rem;
+                        font-size:1.5rem;
+                        color: #f2dede;
+                        animation: fadein 5s;
+                        border-top: 2px solid #f2dede;
+                        border-bottom: 2px solid #f2dede;
 
                     }
-                    .third-line{
-
-                    }
+                        @keyframes fadein {
+                    from { opacity: 0;}
+                    to   { opacity: 1;}
+                }
                 }
             }
-
-            .buttons-wrapper{
-                height:23vh;
-                border: 2px solid red;
+            .buttons-wrapper {
+                height: 23vh;
+                // border: 2px solid red;
                 text-align: center;
-                
-                .leftButton{
-                    border: 2px solid red;
-                    padding-top: 2rem;
-                    float:left;
-                    width:33.33%;
-                    height:100%;
+                .leftButton {
+                    border: 1px solid $oc-red-2;
+                    padding-top: 3rem;
+                    float: left;
+                    width: 33.33%;
+                    height: 100%;
                     transition: all 0.2s;
-                    &:hover{
-                        background-color:$oc-pink-4;
-                        font-size:1.2rem;
+                    &:hover {
+                        background-color: $oc-gray-7;
+                        font-size: 1.2rem;
                     }
-                    a{
-                        color:$oc-gray-9;
+                    a {
+                        color:#efeaea;
+                        letter-spacing: 3px;
                     }
-                    
-                 
                 }
-                .centerButton{
-                    
-                    border: 2px solid red;
-                    padding-top: 2rem;
-                    
-                    float:left;
-                    width:33.33%;
-                    height:100%;
+                .centerButton {
+                    border-top: 1px solid $oc-red-2;
+                    border-bottom:1px solid $oc-red-2;
+                    padding-top: 3rem;
+                    float: left;
+                    width: 33.33%;
+                    height: 100%;
                     transition: all 0.2s;
-                    
-                    a{
-                        color:$oc-gray-9;
+                    a {
+                        color: #efeaea;
+                        letter-spacing: 3px;
                     }
-                     &:hover{
-                        background-color:$oc-pink-4;
-                        font-size:1.2rem;
+                    &:hover {
+                        background-color: $oc-gray-7;
+                        font-size: 1.2rem;
                     }
-                    
                 }
-                .rightButton{
-                    border: 2px solid red;
-                    padding-top: 2rem;
-                    
-                    float:left;
-                    width:33.33%;
-                    height:100%;
+                .rightButton {
+                    border: 1px solid $oc-red-2;
+                    padding-top: 3rem;
+                    float: left;
+                    width: 33.33%;
+                    height: 100%;
                     transition: all 0.2s;
-                    
-                    a{
-                        color:$oc-gray-9;
+                    a {
+                        color: #efeaea;
+                        letter-spacing: 3px;
                     }
-                     &:hover{
-                        background-color:$oc-pink-4;
-                        font-size:1.2rem;
+                    &:hover {
+                        background-color: $oc-gray-7;
+                        font-size: 1.2rem;
                     }
                 }
             }
-
         }
-
     }
 }

@@ -14,6 +14,7 @@ const { LoginModal, LinkAccountModal, LogoutModal } = Modals;
 const { SocialLoginButton } = LoginModal;
 import * as users from 'helpers/firebase/database/users';
 
+
 class App extends Component {
     constructor(props){
         super(props);
@@ -24,6 +25,7 @@ class App extends Component {
 
 
     componentWillMount(){
+        
         auth.authStateChanged(
             async (firebaseUser) => {                
                 if(firebaseUser){

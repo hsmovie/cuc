@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ScrollableAnchor from 'react-scrollable-anchor'
 export { default as Rsvp } from './Rsvp';
 export { default as RsvpOne } from './RsvpOne';
 export { default as RsvpTwo } from './RsvpTwo';
@@ -13,11 +13,16 @@ export { default as RsvpNine } from './RsvpNine';
 export { default as RsvpTen } from './RsvpTen';
 const RsvpLayout = ({children}) => {
     return (
-        <div className="rsvplayout-wrapper">
+        <ScrollableAnchor id={'RSVP'}>
+        <div className="rsvplayout-wrapper" >
             <div className="rsvplayout">
+                <div className="rsvp-header">
+                    RSVP 모임참가신청
+                </div>
                  {children}
             </div>
         </div>
+        </ScrollableAnchor>
     );
 };
 

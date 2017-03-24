@@ -37,6 +37,7 @@ export function deletePhotoAndPoeple(user, id, month, date) {
 export function getDate(month, day, date ) {
  
         const dayFilter = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+                           "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
                            "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const monthFilter = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec.", ".Jan."];
         // const realMonth = monthFilter[month];
@@ -74,10 +75,13 @@ export function getDate(month, day, date ) {
 }
 
 export function checkTomorrowRsvps(month, date, day){
+  
   const TomorrowRsvpExist = firebase.database().ref('rsvp').child(month).child(date);
     TomorrowRsvpExist.once('value', snap => {
       if(!snap.exists()){
         checkDaySwitch(month, date, day);
+      }else{
+        console.log("not added");
       }
   });
 }
@@ -85,12 +89,12 @@ export function checkTomorrowRsvps(month, date, day){
 
 
 export function checkDaySwitch(month, date, day){
+  
   const Rsvp = firebase
     .database()
     .ref('rsvp')
     .child(month)
     .child(date);
-  console.log("im in the if sentences!");
 
         if (day === "Sunday") {
           Rsvp.push({people: 0, selected: false, time: "10:30~12:00AM", title: "아침세션", day: "Sunday"});
