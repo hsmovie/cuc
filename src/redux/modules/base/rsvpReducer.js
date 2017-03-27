@@ -1,17 +1,12 @@
-import _ from 'lodash';
+
 import * as types from './actionTypes';
 
-const initialState = {
-  
-}
-export default function(state = initialState, action) {
+export default function(state = {}, action) {
   switch (action.type) {
     case types.RSVP_FETCH:
       return action.payload;
     case types.RSVP_CREATE:
       return { ...state, ...action.payload };
-    case types.RSVP_DELETE:
-      return _.omit(state, action.payload);
     case types.RSVP_GET_FIRST:
      
       return {...state, rsvp:action.payload};

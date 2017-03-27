@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import header from './header';
 import modal from './modal';
 import rsvp from './rsvpReducer';
+import card from './cardReducer';
 
 const base = combineReducers({
-    header,
     modal,
-    rsvp
+    rsvp,
+    card
 });
 
 export default base ;

@@ -35,7 +35,7 @@ class MainRoute extends Component {
             const todayDay = d.getDay()+i;
              dateData[i] = rsvpdb.getDate(todayMonth, todayDay, todayDate);    
         }
-        console.log(this.props.loginModal);
+        
         
         return (
 

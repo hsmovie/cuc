@@ -8,7 +8,6 @@ import auth from 'helpers/firebase/auth';
 // load components
 // 로고는 헤더의 멍청한 컴포넌트에서 추출해 온것.
 import Header, {BrandLogo, AuthButton, NavBar} from 'components/Base/Header/Header';
-import MainRoute from './routes/MainRoute';
 import * as Modals from 'components/Base/Modals';
 const { LoginModal, LinkAccountModal, LogoutModal } = Modals; 
 const { SocialLoginButton } = LoginModal;

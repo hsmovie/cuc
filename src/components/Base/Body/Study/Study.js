@@ -1,13 +1,40 @@
 import React, { Component } from 'react';
-
+import {connect} from 'react-redux';
+import * as card from 'redux/modules/base/card';
+import _ from 'lodash';
 class Study extends Component {
+
+    componentWillMount() {
+        this.props.fetchCards();
+    }
+
+    renderCards = () => {
+        return _.map(this.props.cards, (card, index) => {
+
+            return (
+                <a href={card.link}>
+                <figure key={index}>
+                    <img src={card.image}/>
+                    <figcaption>{card.title}</figcaption>
+                </figure>     
+                </a>
+            );
+        })
+        
+    }
+
     render() {
+        const {renderCards} = this;
         return (
-            <div>
-                I am Study     
+            <div id="columns">
+                {renderCards()}
             </div>
         );
     }
 }
-
-export default Study;
+const mapStateToProps = (state) => {
+  return { 
+      cards: state.base.card.cards
+ };
+}
+export default connect(mapStateToProps, card)(Study);
