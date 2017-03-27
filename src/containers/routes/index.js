@@ -1,6 +1,6 @@
 import MainRoute from './MainRoute';
-import AuthRoute from './AuthRoute';
+import Admin from './Admin';
 export {
     MainRoute,
-    AuthRoute
+    Admin
 }

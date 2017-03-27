@@ -4,7 +4,7 @@ import React from 'react';
 export { default as BrandLogo} from './BrandLogo';
 export { default as SidebarButton } from './SidebarButton';
 export { default as AuthButton } from './AuthButton';
-
+export { default as NavBar } from './NavBar';
 
 const Header = ({children}) => {
     
@@ -15,9 +15,7 @@ const Header = ({children}) => {
                     {children}
                 </div>
             </div>
-            <div className="header-spacer">
-
-            </div>
+          
         </div>
     );
 };

@@ -57,6 +57,7 @@
         .goButton-wrapper{
             float: left;
             width: 7.33%;
+            
         }
         .time{
             float: left;
@@ -90,6 +91,7 @@
       
   }
   .goButton-wrapper{
+      transform:translate(-9px, 0);
        float: left;
        width: 16.66%;
         .goButton{
@@ -104,7 +106,7 @@
   .number-wrapper{
      
        .number {
-      
+      transform:translate(10px, 0);
       font-size:14px;;
       
   }

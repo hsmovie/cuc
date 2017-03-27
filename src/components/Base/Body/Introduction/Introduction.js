@@ -2,15 +2,13 @@
 import React, {Component} from 'react';
 // import Typist from 'react-typist';
 import TypeWriter from 'react-typewriter';
-
-
+import ScrollableAnchor from 'react-scrollable-anchor';
 class Introduction extends Component {
     render() {
-     
+       
 
         return (
-            
-
+        <ScrollableAnchor id={'HOME'}>
             <div className="introduction-wrapper">
                 <div className="introduction">
 
@@ -18,9 +16,15 @@ class Introduction extends Component {
                         <div className="welcome-wrapper">
                             <div className="welcoming-sentences">
                                 <div className="svg-wrapper">
-                                    
-                                    <div className="cuc">
-                                        <p className="cucFirst">Culture lab Under the City
+
+                                    <div typing={1} maxDelay={100} minDelay={30} className="cuc">
+                                        <p className="cucFirst">
+                                            <span className="span">
+                                                <span className="C">C</span>ulture lab</span>
+                                            <span className="span">
+                                                <span className="C"> U</span>nder the</span>
+                                            <span className="span">
+                                                <span className="C"> C</span>ity</span>
                                         </p>
                                         <p className="cucSecond">문화를 만드는 사람들
                                         </p>
@@ -33,29 +37,30 @@ class Introduction extends Component {
 
                         </div>
                         <div className="buttons-wrapper row">
-                            <div className="leftButton">
-                                <a  href="#RSVP">
-                                    <h2>RSVP</h2>
-                                    <p>모임참석신청을 해보세요.</p>
-                                </a>
-                            </div>
-                            <div className="centerButton">
-                                <a href="#STUDY">
-                                    <h2>STUDY</h2>
-                                    <p>다양한 스터디와 문화교류의 장이 펼쳐집니다.</p>
-                                </a>
-                            </div>
-                            <div className="rightButton">
-                                <a  href="#INQUIRY">
+                            <button className="leftButton">
+                                <a href="#INQUIRY">
                                     <h2>INQUIRY</h2>
                                     <p>문의사항 및 건의사항</p>
                                 </a>
-                            </div>
+                            </button>
+                            <button className="centerButton">
+                                <a href="#STUDY">
+                                    <h2>STUDY</h2>
+                                    <p>다양한 스터디<span className="xmHide">와 문화교류의 장이 펼쳐집니다.</span></p>
+                                </a>
+                            </button>
+                            <button className="rightButton">
+                                <a href="#RSVP">
+                                    <h2>RSVP</h2>
+                                    <p>모임참석신청<span className="xmHide">을 해보세요.</span></p>
+                                </a>
+                            </button>
 
                         </div>
                     </div>
                 </div>
             </div>
+        </ScrollableAnchor>
 
         );
     }

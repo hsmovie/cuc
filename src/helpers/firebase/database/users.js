@@ -10,6 +10,7 @@ export function createUserData(users){
          email,
          photoURL, 
          displayName
+         
     });
 }
 

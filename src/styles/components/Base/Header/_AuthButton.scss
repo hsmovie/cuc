@@ -20,7 +20,14 @@
         cursor:pointer;
         user-select: none;
         &:hover{
-            background: $oc-pink-5;
+            background: $oc-pink-9;
         }
     }
 }
+
+@include media("<desktop"){
+      .auth-button-wrapper{
+          
+      }
+      
+  }

@@ -16,13 +16,11 @@ import _ from 'lodash';
 // import RsvpForm from 'components/Base/Body/RsvpForm';
 // import Rsvp from 'components/Base/Body/Rsvp';
 import Introduction from 'components/Base/Body/Introduction/Introduction';
+import Study from 'components/Base/Body/Study/Study';
 import Footer from 'components/Base/Footer/Footer';
 import RsvpLayout, { RsvpOne, RsvpTwo, RsvpThree, RsvpFour, RsvpFive, RsvpSix, RsvpSeven, RsvpEight, RsvpNine, RsvpTen } from 'components/Base/Body/Rsvp/RsvpLayout';
 
 class MainRoute extends Component {
-    
- 
-
     
     render() {
         
@@ -35,9 +33,9 @@ class MainRoute extends Component {
             
             const todayDate = d.getDate()+i;
             const todayDay = d.getDay()+i;
-             dateData[i] = rsvpdb.getDate(todayMonth, todayDay, todayDate);
-             
+             dateData[i] = rsvpdb.getDate(todayMonth, todayDay, todayDate);    
         }
+        console.log(this.props.loginModal);
         
         return (
 
@@ -58,6 +56,8 @@ class MainRoute extends Component {
                 <RsvpTen dateData={dateData[9]} loginModal={this.props.loginModal}/>
                 
                 </RsvpLayout>
+
+                <Study/>
                 <Footer/>
             </div>
         );

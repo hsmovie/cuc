@@ -7,7 +7,7 @@ import auth from 'helpers/firebase/auth';
 // import LinkAccountModal from 'components/Base/LoginModal/LinkAccountModal';
 // load components
 // 로고는 헤더의 멍청한 컴포넌트에서 추출해 온것.
-import Header, {SidebarButton, BrandLogo, AuthButton} from 'components/Base/Header/Header';
+import Header, {BrandLogo, AuthButton, NavBar} from 'components/Base/Header/Header';
 import MainRoute from './routes/MainRoute';
 import * as Modals from 'components/Base/Modals';
 const { LoginModal, LinkAccountModal, LogoutModal } = Modals; 
@@ -106,11 +106,21 @@ class App extends Component {
        handleModal.close('logout');
    }
 
+   renderChildren = (props) => {
+       const {handleModal} = this ;
+  const childrenWithProps = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, {
+        loginModal: () => handleModal.open({modalName: 'login'})
+      });
+  });
+    return childrenWithProps
+}
+
     render() {
         
-    const { status: {modal} } = this.props;
+    const {status: {modal} } = this.props;
     
-    const { handleAuth, handleModal, handleLinkAccount, handleLogout } = this;
+    const { handleAuth, handleModal, handleLinkAccount, handleLogout, renderChildren } = this;
     
     //토글 스테이트를 보고 버튼에 어떤 함수를 보내줄지 알아냄.
      const logoutToggle = this.state.toggle ? () => handleModal.open({modalName: 'logout'}) : () => handleModal.open({modalName:'login'}) ;
@@ -118,8 +128,9 @@ class App extends Component {
         return (
             <div>
                 <Header>
-                    <SidebarButton />
+                    
                     <BrandLogo />
+                    <NavBar/>
                     <AuthButton onClick={logoutToggle} toggle={this.state.toggle}/>
                 </Header> 
                 <LoginModal visible={modal.getIn(['login', 'open'])} onHide={() => handleModal.close('login')}>
@@ -140,9 +151,7 @@ class App extends Component {
                     onLinkAccount={handleLinkAccount}
                 />
                 
-                <MainRoute 
-                    loginModal={() => handleModal.open({modalName:'login'})}
-                />
+        {renderChildren()}
             </div>
         );
     }

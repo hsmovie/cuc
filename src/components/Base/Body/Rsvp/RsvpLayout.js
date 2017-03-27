@@ -1,5 +1,5 @@
 import React from 'react';
-import ScrollableAnchor from 'react-scrollable-anchor'
+import ScrollableAnchor from 'react-scrollable-anchor';
 export { default as Rsvp } from './Rsvp';
 export { default as RsvpOne } from './RsvpOne';
 export { default as RsvpTwo } from './RsvpTwo';

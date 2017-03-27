@@ -5,7 +5,7 @@
 .rsvp-wrapper {
     
     .rsvp-month{
-        
+        transform:translate(-20px, 0);    
         width: 16.66%;
         float: left;
         font-size:2.5rem;
@@ -14,6 +14,7 @@
         font-weight: 500;
     }
     .rsvp-dateAndDay-wrapper{
+        transform:translate(-10px, 0);    
         width: 16.66%;
         float: left;
         text-align: center;
@@ -40,17 +41,17 @@
 }
  @include media("<desktop"){
      .rsvp-wrapper{
-         
+
          .rsvp-month{
               width: 16.66%;
         float: left;
-        font-size:23px;
+        font-size:20px;
     }
     .rsvp-dateAndDay-wrapper{
  width: 16.66%;
         float: left;
         .rsvp-date {
-        font-size:27px;
+        font-size:25px;
        
     }
      .rsvp-day {
@@ -64,6 +65,8 @@
         float: left;
     }
      }
+
+     
       
         
     }
