@@ -8,16 +8,16 @@ import * as rsvpdb from 'helpers/firebase/database/rsvp';
 class Rsvp extends Component {
 
     state = {
-        buttonToggle: false
+        buttonToggle: false,
+        renderButton: false
     }
 
     componentWillMount() {
-        const uid = firebase
-            .auth()
-            .currentUser;
+
+        const uid = firebase.auth().currentUser;
         if (uid === null) {
             console.log("not loged in");
-        } else {
+        }else {
             firebase
                 .database()
                 .ref('rsvp')
@@ -35,7 +35,6 @@ class Rsvp extends Component {
                     }
                 });
         }
-
     }
 
     handleCheck = (user, id) => {
@@ -93,9 +92,6 @@ class Rsvp extends Component {
                         src={photo}></Image>
                 );
             });
-            // return _.map(pictures, (people, index) => {     return (         <Image
-            //       key={index}             className="pictures"             size="mini"
-            //          shape="circular"             src={people.photo}></Image>     ); });
 
         } else {
             return _.map(this.props.rsvp.people, (people, index) => {
@@ -109,10 +105,22 @@ class Rsvp extends Component {
         }
 
     }
-    // <Image floated="right" size="mini" shape="circular"
-    // src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4
-    // 2 52rscbv5M/photo.jpg"/> <Button className="dltButton"
-    // onClick={this.props.handleDelete}>DELETE</Button>
+    // renderDeleteButton = () => {
+    //      const uid = firebase.auth().currentUser;
+    //     if (uid === null) {
+    //         console.log("not Admin");
+    //         return null;
+    //     }else{
+    //        if(uid.uid === "q2yxAanwlUfZp0Puj6gLDKZi6cV2"){
+    //           return (
+    //                <span><Button onClick={this.props.handleDelete}>삭제</Button></span>
+    //           );
+    //        }else{
+    //            return null
+    //        }
+    //     }
+    // }
+    
     render() {
         const {handleUnCheck, handleCheck, renderPhotos} = this;
         const checkButton = {
@@ -163,6 +171,8 @@ class Rsvp extends Component {
                         </Label>}
 
                 </span>
+
+                
 
             </div>
         );

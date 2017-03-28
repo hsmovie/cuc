@@ -11,6 +11,7 @@ const auth = (function(){
         
         },
         facebook: () => {
+            console.log("im in facebook");
         return firebase.auth().signInWithPopup(providers.facebook);
         
         },

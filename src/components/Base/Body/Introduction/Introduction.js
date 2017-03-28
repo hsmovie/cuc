@@ -1,7 +1,8 @@
 // import BigLogo from './BigLogo'; import {Button} from 'semantic-ui-react'
 import React, {Component} from 'react';
 // import Typist from 'react-typist';
-import TypeWriter from 'react-typewriter';
+// import TypeWriter from 'react-typewriter';
+//  typing={1} maxDelay={100} minDelay={30}
 import ScrollableAnchor from 'react-scrollable-anchor';
 class Introduction extends Component {
     render() {
@@ -17,7 +18,7 @@ class Introduction extends Component {
                             <div className="welcoming-sentences">
                                 <div className="svg-wrapper">
 
-                                    <div typing={1} maxDelay={100} minDelay={30} className="cuc">
+                                    <div className="cuc">
                                         <p className="cucFirst">
                                             <span className="span">
                                                 <span className="C">C</span>ulture lab</span>

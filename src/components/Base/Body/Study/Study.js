@@ -10,12 +10,11 @@ class Study extends Component {
 
     renderCards = () => {
         return _.map(this.props.cards, (card, index) => {
-
             return (
-                <a href={card.link}>
-                <figure key={index}>
+                <a href={card.link} key={index}>
+                <figure>
                     <img src={card.image}/>
-                    <figcaption>{card.title}</figcaption>
+                    <figcaption>{card.description}</figcaption>
                 </figure>     
                 </a>
             );

@@ -23,15 +23,7 @@ const checkSessionTimeout = () => {
     } 
 };
 
-
-
 setInterval(checkSessionTimeout, 1000);
-
-window.setTimeout( () => {
-  window.location.reload();
-}
-  
-  , 5000000);
 
 
 ReactDOM.render(

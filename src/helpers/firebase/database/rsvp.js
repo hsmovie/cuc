@@ -132,4 +132,13 @@ export function checkDaySwitch(month, date, day){
         }
 }
 
+export function deleteRsvp(key, month, date) {
+  return firebase.database()
+    .ref('rsvp')
+    .child(month)
+    .child(date)
+    .child(key)
+    .remove();
+    
+}
 

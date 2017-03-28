@@ -21,15 +21,6 @@ export function createRsvp(data) {
     .push(data);
 }
 
-export function deleteRsvp(key, month, date) {
-  return dispatch => firebase
-    .database()
-    .ref('rsvp')
-    .child(month)
-    .child(date)
-    .child(key)
-    .remove();
-}
 
 export function getFirstRsvps() {
   const todayDate = d.getDate();
@@ -197,8 +188,6 @@ export function getTenthRsvps() {
       });
     });
   }
-  
-  
 }
 
 

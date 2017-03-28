@@ -150,7 +150,7 @@ class App extends Component {
                     onLinkAccount={handleLinkAccount}
                 />
                 
-        {renderChildren()}
+                 {renderChildren()}
             </div>
         );
     }
