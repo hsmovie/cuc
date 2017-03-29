@@ -105,21 +105,7 @@ class Rsvp extends Component {
         }
 
     }
-    // renderDeleteButton = () => {
-    //      const uid = firebase.auth().currentUser;
-    //     if (uid === null) {
-    //         console.log("not Admin");
-    //         return null;
-    //     }else{
-    //        if(uid.uid === "q2yxAanwlUfZp0Puj6gLDKZi6cV2"){
-    //           return (
-    //                <span><Button onClick={this.props.handleDelete}>삭제</Button></span>
-    //           );
-    //        }else{
-    //            return null
-    //        }
-    //     }
-    // }
+   
     
     render() {
         const {handleUnCheck, handleCheck, renderPhotos} = this;

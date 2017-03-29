@@ -113,7 +113,7 @@ export function checkDaySwitch(month, date, day){
         }
 
         if (day === "Wednesday") {
-          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "저녘세션", day: "Wednesday"})
+          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "저녘세션", day: "Wednesday"});
         }
 
         if (day === "Thursday") {
@@ -128,7 +128,7 @@ export function checkDaySwitch(month, date, day){
 
         if (day === "Saturday") {
           Rsvp.push({people: 0, selected: false, time: "10:30~12:00AM", title: "아침세션", day: "Saturday"});
-          Rsvp.push({people: 0, selected: false, time: "03:00~05:00PM", title: "점심세션", day: "Saturday"})
+          Rsvp.push({people: 0, selected: false, time: "03:00~05:00PM", title: "점심세션", day: "Saturday"});
         }
 }
 
@@ -141,4 +141,5 @@ export function deleteRsvp(key, month, date) {
     .remove();
     
 }
+
 

@@ -1,4 +1,8 @@
-#columns {
+
+.study-wrapper{
+	padding-top: 10rem;
+	background: linear-gradient(to bottom, rgba(80,10,12,0.6) 0%,rgba(150, 33, 33, 0.8) 100%) repeat 0 0;
+	#columns {
 	column-width: 320px;
 	column-gap: 15px;
   width: 90%;
@@ -51,4 +55,45 @@ div#columns:hover figure:not(:hover) {
 @media screen and (max-width: 750px) { 
   #columns { column-gap: 0px; }
   #columns figure { width: 100%; }
+}
+
+	.study-header{
+						margin-left:20%;
+            margin-right:20%;
+            width:60%;
+            font-size:3.5rem;
+            font-weight: 500;
+            color:#efeaea;
+            letter-spacing: 3px;
+            text-align: center;
+            padding-top:50px;
+            padding-bottom:50px;
+            margin-bottom: 4rem;
+           border: 1px solid $oc-red-2;
+           box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.8);
+	}
+	.study-sub-header{
+		text-align: center;
+		font-size:2rem;
+		color:#efeaea;
+		padding:10px;
+	}
+}
+
+@include media("<desktop"){
+    .study-wrapper{
+			.study-header{
+					.hide{
+			display:none
+		}
+				font-size:15px;
+				padding:15px;
+			}
+			.study-sub-header{
+		padding-top:0;
+		font-size:15px;
+		
+	}
+		}
+  
 }

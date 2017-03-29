@@ -91,7 +91,7 @@
                 .leftButton {
                     background-color: Transparent;
                     border: 1px solid $oc-red-2;
-                    padding-top: 1.5rem;
+                    padding-top: 3.3rem;
                     float: left;
                     width: 33.33%;
                     height: 100%;
@@ -100,24 +100,24 @@
                         background-color: $oc-gray-7;
                         font-size: 1.2rem;
                     }
-                    a {
+                    
                         color:#efeaea;
                         letter-spacing: 3px;
-                    }
+                    
                 }
                 .centerButton { 
                      background-color: Transparent;
                     border-top: 1px solid $oc-red-2;
                     border-bottom:1px solid $oc-red-2;
-                    padding-top: 1.5rem;
+                    padding-top: 3.3rem;
                     float: left;
                     width: 33.33%;
                     height: 100%;
                     transition: all 0.1s;
-                    a {
+                    
                         color: #efeaea;
                         letter-spacing: 3px;
-                    }
+                    
                     &:hover {
                         background-color: $oc-gray-7;
                         font-size: 1.2rem;
@@ -126,15 +126,15 @@
                 .rightButton {
                     background-color: Transparent;
                     border: 1px solid $oc-red-2;
-                    padding-top: 1.5rem;
+                    padding-top: 3.3rem;
                     float: left;
                     width: 33.33%;
                     height: 100%;
                     transition: all 0.1s;
-                    a {
-                        color: #efeaea;
-                        letter-spacing: 3px;
-                    }
+                    color: #efeaea;
+                    letter-spacing: 3px;
+                    
+                    
                     &:hover {
                         background-color: $oc-gray-7;
                         font-size: 1.2rem;

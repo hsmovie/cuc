@@ -4,7 +4,7 @@ import _ from 'lodash';
 import {connect} from 'react-redux';
 import * as card from 'redux/modules/base/card';
 import * as cardDB from 'helpers/firebase/database/card';
-import { Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react';
 class CardManager extends Component {
 
     componentWillMount(){
