@@ -8,8 +8,8 @@ import * as rsvpdb from 'helpers/firebase/database/rsvp';
 class Rsvp extends Component {
 
     state = {
-        buttonToggle: false,
-        renderButton: false
+        buttonToggle: false
+        
     }
 
     componentWillMount() {
@@ -153,7 +153,7 @@ class Rsvp extends Component {
                     {noPickturesToggle
                         ? null
                         : <Label circular size="big" className="number">
-                            +{this.props.rsvp.number}
+                            +{_.size(this.props.rsvp.people)}
                         </Label>}
 
                 </span>

@@ -23,6 +23,7 @@ export function createRsvp(data) {
 
 
 export function getFirstRsvps() {
+  
   const todayDate = d.getDate();
   
   const Rsvp = firebase
@@ -77,6 +78,7 @@ export function getThirdRsvps() {
 }
 
 export function getFourthRsvps() {
+  
   const Rsvp = firebase
     .database()
     .ref('rsvp')
@@ -93,6 +95,7 @@ export function getFourthRsvps() {
 }
 
 export function getFifthRsvps() {
+  
   const Rsvp = firebase
     .database()
     .ref('rsvp')
@@ -109,6 +112,7 @@ export function getFifthRsvps() {
 }
 
 export function getSixthRsvps() {
+  
   const Rsvp = firebase
     .database()
     .ref('rsvp')
@@ -125,6 +129,7 @@ export function getSixthRsvps() {
 }
 
 export function getSeventhRsvps() {
+  
   const Rsvp = firebase
     .database()
     .ref('rsvp')
@@ -141,6 +146,7 @@ export function getSeventhRsvps() {
 }
 
 export function getEighthRsvps() {
+  
   const Rsvp = firebase
     .database()
     .ref('rsvp')
@@ -157,11 +163,14 @@ export function getEighthRsvps() {
 }
 
 export function getNinthRsvps() {
+  
   const Rsvp = firebase
     .database()
     .ref('rsvp')
     .child(dateData[8].month)
     .child(dateData[8].date);
+
+    
   return dispatch => {
     Rsvp.on('value', snap => {
       dispatch({
@@ -178,7 +187,7 @@ export function getTenthRsvps() {
     .ref('rsvp')
     .child(dateData[9].month)
     .child(dateData[9].date);
-    console.log(dateData[10].month, dateData[10].date, dateData[10].day);
+    
     rsvpdb.checkTomorrowRsvps(dateData[10].month, dateData[10].date, dateData[10].day);
   return dispatch => {
     Rsvp.on('value', snap => {

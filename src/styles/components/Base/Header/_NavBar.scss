@@ -9,7 +9,7 @@
     display: inline-block;
 }
 
-@include media("<desktop"){
+@include media(">phone","<desktop"){
     .navber{
     a{
         line-height: 1.7rem;
@@ -21,3 +21,16 @@
     display: inline-block;
 }
 }
+
+@include media("<=phone"){
+       .navber{
+    a{
+        line-height: 1.7rem;
+    font-size: 13px;
+    margin-left:15px; 
+    color: white;
+    
+    }
+    display: inline-block;
+}
+ }

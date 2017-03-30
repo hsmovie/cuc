@@ -27,23 +27,23 @@ class App extends Component {
         auth.authStateChanged(async(firebaseUser) => {
             if (firebaseUser) {
                 this.setState({toggle: true});
-              
+                
                 if (firebaseUser.uid === "pXrzS2OyGiYFNIDVYnlgPBB1ABd2") {
                     this.setState({navBarToggle: true});
                 } else {
                     const user = await users.findUserById(firebaseUser.uid);
                     if (!user.exists()) {
                         await users.createUserData(firebaseUser);
-                        console.log("Loged in !", firebaseUser);
+                        console.log("Loged in ! with adding data", firebaseUser);
+                    } else{
+                        console.log("Loged in ! without adding data", firebaseUser);
                     }
-                 else {
-                    //다시 토글을 스위칭해서 로그인 / 회원가입 버튼 나오게 만든다.
-                    this.setState({toggle: false});
-                    console.log('not loged in');
-                 }
                 }
+            } else {
+                //다시 토글을 스위칭해서 로그인 / 회원가입 버튼 나오게 만든다.
+                this.setState({toggle: false});
+                console.log('not loged in');
             }
-            
 
         });
     }

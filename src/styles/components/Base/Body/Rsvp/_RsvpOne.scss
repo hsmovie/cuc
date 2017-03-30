@@ -1,73 +1,87 @@
-.rsvp-month, .rsvp-dateAndDay-wrapper, .rsvp-content{
+.rsvp-month,
+.rsvp-dateAndDay-wrapper,
+.rsvp-content {
     // border: 1px solid red;
     padding: 15px;
 }
+
 .rsvp-wrapper {
-    
-    .rsvp-month{
-        transform:translate(-20px, 0);    
+    .rsvp-month {
+        transform: translate(-20px, 0);
         width: 16.66%;
         float: left;
-        font-size:2.5rem;
-        color:$oc-gray-7;
+        font-size: 2.5rem;
+        color: $oc-gray-7;
         text-align: right;
         font-weight: 500;
     }
-    .rsvp-dateAndDay-wrapper{
-        transform:translate(-10px, 0);    
+    .rsvp-dateAndDay-wrapper {
+        transform: translate(-10px, 0);
         width: 16.66%;
         float: left;
         text-align: center;
-.rsvp-date {
-        
-        
-        color:$oc-gray-9;
-        font-size:3.5rem;
-        font-weight: 500;
-        
+        .rsvp-date {
+            color: $oc-gray-9;
+            font-size: 3.5rem;
+            font-weight: 500;
+        }
+        .rsvp-day {
+            padding-top: 10px;
+            font-size: 0.9rem;
+        }
     }
-    .rsvp-day {
-        
-
-        padding-top: 10px;
-    
-        font-size: 0.9rem;
-    }
-    }
-    .rsvp-content{
+    .rsvp-content {
         width: 66.66%;
         float: left;
     }
 }
- @include media("<desktop"){
-     .rsvp-wrapper{
 
-         .rsvp-month{
-              width: 16.66%;
-        float: left;
-        font-size:20px;
+@include media(">phone","<desktop") {
+    .rsvp-wrapper {
+        .rsvp-month {
+            width: 16.66%;
+            float: left;
+            font-size: 20px;
+        }
+        .rsvp-dateAndDay-wrapper {
+            width: 16.66%;
+            float: left;
+            .rsvp-date {
+                font-size: 25px;
+            }
+            .rsvp-day {
+                padding-top: 0;
+                font-size: 10px;
+            }
+        }
+        .rsvp-content {
+            width: 66.66%;
+            float: left;
+        }
     }
-    .rsvp-dateAndDay-wrapper{
- width: 16.66%;
-        float: left;
-        .rsvp-date {
-        font-size:25px;
-       
+}
+ @include media("<=phone"){
+                 .rsvp-wrapper {
+        .rsvp-month {
+            width: 16.66%;
+            float: left;
+            font-size: 18px;
+        }
+        .rsvp-dateAndDay-wrapper {
+            width: 16.66%;
+            float: left;
+            .rsvp-date {
+                font-size: 20px;
+            }
+            .rsvp-day {
+                padding-top: 0;
+                font-size: 6px;
+                transform: translate(-8px, 0);
+            }
+        }
+        .rsvp-content {
+            width: 66.66%;
+            float: left;
+        }
     }
-     .rsvp-day {
-         padding-top:0;
-        font-size: 10px;
-        
-     }
-    }
-    .rsvp-content{
-         width: 66.66%;
-        float: left;
-    }
-     }
-
-     
-      
-        
-    }
-
+ }
