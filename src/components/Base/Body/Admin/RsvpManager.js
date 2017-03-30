@@ -184,7 +184,7 @@ class RsvpManager extends Component {
         
 
         return (
-    <Table definition>
+    <Table definition className="rsvp-table-wrapper">
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell />

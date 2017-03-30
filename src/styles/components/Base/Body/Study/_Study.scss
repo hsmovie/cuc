@@ -1,9 +1,11 @@
 
 .study-wrapper{
+	
 	padding-top: 10rem;
 	background: linear-gradient(to bottom, rgba(80,10,12,0.6) 0%,rgba(150, 33, 33, 0.8) 100%) repeat 0 0;
+	padding-bottom: 10rem;
 	#columns {
-	column-width: 320px;
+	column-width: 300px;
 	column-gap: 15px;
   width: 90%;
 	max-width: 1100px;
@@ -15,7 +17,7 @@ div#columns figure {
 	border: 2px solid #fcfcfc;
 	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
 	margin: 0 2px 15px;
-	padding: 15px;
+	padding: 20px;
 	padding-bottom: 10px;
 	transition: opacity .4s ease-in-out;
   display: inline-block;
@@ -30,7 +32,7 @@ div#columns figure img {
 }
 
 div#columns figure figcaption {
-  font-size: .9rem;
+  font-size: 1.2rem;
 	color: #444;
   line-height: 1.5;
 }
@@ -48,12 +50,9 @@ div#columns small a {
   transition: .4s color;
 }
 
-div#columns:hover figure:not(:hover) {
-	opacity: 0.4;
-}
 
 @media screen and (max-width: 750px) { 
-  #columns { column-gap: 0px; }
+  #columns { column-gap: 50px; }
   #columns figure { width: 100%; }
 }
 
@@ -82,6 +81,7 @@ div#columns:hover figure:not(:hover) {
 
 @include media("<desktop"){
     .study-wrapper{
+			width:100%;
 			.study-header{
 					.hide{
 			display:none

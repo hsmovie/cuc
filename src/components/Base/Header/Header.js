@@ -9,14 +9,13 @@ export { default as NavBar } from './NavBar';
 const Header = ({children}) => {
     
     return (
-        <div>
+   
             <div className="header-wrapper">
                 <div className="header">
                     {children}
                 </div>
             </div>
-          
-        </div>
+        
     );
 };
 

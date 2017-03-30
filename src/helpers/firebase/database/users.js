@@ -4,9 +4,21 @@ export function findUserById(uid) {
     return firebase.database().ref('users/' + uid).once('value');
 }
 
+export function findCurrentUser(){
+    const currentUser = firebase.auth().currentUser;
+    if(currentUser){
+        return currentUser ;
+    }else{
+        return console.log("No currentUser, not Loged in") ;
+    }
+    
+}
+
 export function createUserData(users){
    const {uid, email, photoURL, displayName} = users;
-   return firebase.database().ref('/users/' + uid).set({
+   
+
+   return firebase.database().ref('users/' + uid).set({
          email,
          photoURL, 
          displayName

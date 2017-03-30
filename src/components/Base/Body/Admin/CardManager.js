@@ -40,7 +40,7 @@ class CardManager extends Component {
     render() {
         const {renderManager} = this;
         return (
-    <Table definition>
+    <Table definition className="card-table-wrapper">
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell />

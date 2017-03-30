@@ -142,4 +142,13 @@ export function deleteRsvp(key, month, date) {
     
 }
 
+export function addRsvp(month, date, title, time, day){
+    const Rsvp = firebase
+    .database()
+    .ref('rsvp')
+    .child(month)
+    .child(date);
+    Rsvp.push({people:0, time:time, title:title, day:day, number:0})
+}
+
 

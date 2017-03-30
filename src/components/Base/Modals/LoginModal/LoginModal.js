@@ -39,7 +39,7 @@ class LoginModal extends Component {
                 <EyeCatchy onHide={onHide}>
                     <div className={`login-modal ${animation}`}>
                     <div className="exit" onClick={onHide}>&#x2715;</div>
-                    <div className="logo">BrandLogo</div>
+                    <div className="logo">CUC</div>
                     <div className="description">
                         <p> Culture Lab Under The City</p>
                         <p> Don't Just Exist</p>                  

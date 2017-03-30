@@ -1,8 +1,15 @@
 .footer-wrapper{
-    height:60px;
-    background-color: $oc-gray-6;
+    width:100%;
+    height:100px;
+    background-color: $oc-gray-8;
     text-align: center;
     .footer-contents{
-        
+        padding-top:20px;
+        color:white;
+        text-align: center;
     }
+}
+@include media("<desktop"){
+    
+    
 }

@@ -11,6 +11,9 @@ body{
     // border: 1px solid red;
     padding: 15px;
 }
+.body{
+    width:100%;
+}
 .row::after {
     content: "";
     clear: both;

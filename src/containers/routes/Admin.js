@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {CardInputForm, CardManager, RsvpInputForm, RsvpManager} from 'components/Base/Body/Admin';
 import * as cardDB from 'helpers/firebase/database/card';
-import * as rsvpdb from 'helpers/firebase/database/rsvp';
+import * as rsvpDB from 'helpers/firebase/database/rsvp';
 import {connect} from 'react-redux';
 import * as rsvp from 'redux/modules/base/rsvp';
 class Admin extends Component {
@@ -17,20 +17,30 @@ class Admin extends Component {
         this.props.getEighthRsvps();
         this.props.getNinthRsvps();
         this.props.getTenthRsvps();
-
     }
     state = {
             link:"",
             description:"",
-            imageLink:""
+            imageLink:"",
+
+            month:"",
+            date:"",
+            title:"",
+            time:"",
+            day:""
         }
    
     addCardFirebase = () => {
         cardDB.addCard(this.state.link, this.state.description, this.state.imageLink);
     }
 
+    addRsvpFirebase = () => {
+        console.log(this.state.day);
+        rsvpDB.addRsvp(this.state.month, this.state.date, this.state.title, this.state.time, this.state.day);
+    }
+
     render() {
-        const {addCardFirebase} = this;
+        const {addCardFirebase, addRsvpFirebase} = this;
 
         const d = new Date();
         const todayMonth = d.getMonth();
@@ -41,7 +51,7 @@ class Admin extends Component {
             
             const todayDate = d.getDate()+i;
             const todayDay = d.getDay()+i;
-             dateData[i] = rsvpdb.getDate(todayMonth, todayDay, todayDate);   
+             dateData[i] = rsvpDB.getDate(todayMonth, todayDay, todayDate);   
         }
         // const rsvpData = Object.assign({}, this.props.rsvp,this.props.rsvpTwo,this.props.rsvpThree,this.props.rsvpFour,this.props.rsvpFive,this.props.rsvpSix,this.props.rsvpSeven,this.props.rsvpEight,this.props.rsvpNine,this.props.rsvpTen);
         
@@ -54,7 +64,14 @@ class Admin extends Component {
                     handleSubmit={() => addCardFirebase()}
                 />
                 <CardManager/>
-                <RsvpInputForm/>
+                <RsvpInputForm
+                    handleTitle={(e) => this.setState({title: e.target.value})}
+                    handleDate={(e) => this.setState({date: e.target.value})}
+                    handleMonth={(e) => this.setState({month: e.target.value})}
+                    handleTime={(e) => this.setState({time: e.target.value})}
+                    handleDay={(e) => this.setState({day: e.target.value})}
+                    handleSubmit={() => addRsvpFirebase()}
+                />
                 <RsvpManager
                     rsvp={this.props.rsvp}
                     rsvpTwo={this.props.rsvpTwo}
@@ -66,7 +83,6 @@ class Admin extends Component {
                     rsvpEight={this.props.rsvpEight}
                     rsvpNine={this.props.rsvpNine}
                     rsvpTen={this.props.rsvpTen}
-                    
                     dateData={dateData}
                 />
                

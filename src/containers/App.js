@@ -10,13 +10,15 @@ import Header, {BrandLogo, AuthButton, NavBar} from 'components/Base/Header/Head
 import * as Modals from 'components/Base/Modals';
 const {LoginModal, LinkAccountModal, LogoutModal} = Modals;
 const {SocialLoginButton} = LoginModal;
+
 import * as users from 'helpers/firebase/database/users';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            toggle: false
+            toggle: false,
+            navBarToggle: false
         }
     }
 
@@ -25,21 +27,28 @@ class App extends Component {
         auth.authStateChanged(async(firebaseUser) => {
             if (firebaseUser) {
                 this.setState({toggle: true});
-                //confirm user's data exist,
-                const user = await users.findUserById(firebaseUser.uid);
-                if (!user.exists()) {
-                    await users.createUserData(firebaseUser);
-                    console.log("Loged in !", firebaseUser);
+              
+                if (firebaseUser.uid === "pXrzS2OyGiYFNIDVYnlgPBB1ABd2") {
+                    this.setState({navBarToggle: true});
+                } else {
+                    const user = await users.findUserById(firebaseUser.uid);
+                    if (!user.exists()) {
+                        await users.createUserData(firebaseUser);
+                        console.log("Loged in !", firebaseUser);
+                    }
+                 else {
+                    //다시 토글을 스위칭해서 로그인 / 회원가입 버튼 나오게 만든다.
+                    this.setState({toggle: false});
+                    console.log('not loged in');
+                 }
                 }
-            } else {
-                //다시 토글을 스위칭해서 로그인 / 회원가입 버튼 나오게 만든다.
-                this.setState({toggle: false});
-                console.log('not loged in');
             }
+            
+
         });
     }
 
-    handleAuth = async (provider) => {
+    handleAuth = async(provider) => {
         const {handleModal} = this;
 
         this
@@ -65,13 +74,13 @@ class App extends Component {
                 });
             }
         }
-        if(this.state.toggle === true){
-            window.location.reload();
+        if (this.state.toggle === true) {
+            window
+                .location
+                .reload();
         }
-        
+
     }
-
-
 
     handleModal = ((modalName) => {
         const {ModalActions} = this.props;
@@ -117,13 +126,20 @@ class App extends Component {
         return childrenWithProps;
     }
 
+    renderNavbar = async() => {}
     render() {
-
         const {status: {
                 modal
             }} = this.props;
 
-        const {handleAuth, handleModal, handleLinkAccount, handleLogout, renderChildren} = this;
+        const {
+            handleAuth,
+            handleModal,
+            handleLinkAccount,
+            handleLogout,
+            renderChildren,
+            renderNavbar
+        } = this;
 
         //토글 스테이트를 보고 버튼에 어떤 함수를 보내줄지 알아냄.
         const logoutToggle = this.state.toggle
@@ -134,8 +150,9 @@ class App extends Component {
             <div>
                 <Header>
 
-                    <BrandLogo/>
-                    <NavBar/>
+                    <BrandLogo/> {this.state.navBarToggle
+                        ? <NavBar/>
+                        : null}
                     <AuthButton onClick={logoutToggle} toggle={this.state.toggle}/>
                 </Header>
                 <LoginModal

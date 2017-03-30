@@ -57,7 +57,7 @@ class MainRoute extends Component {
                 
                 </RsvpLayout>
 
-                <Study/>
+                 <Study/>
                 <Footer/>
             </div>
         );

@@ -38,11 +38,7 @@ class Introduction extends Component {
 
                         </div>
                         <div className="buttons-wrapper row">
-                            
-                                <a href="#INQUIRY" className="leftButton">
-                                    <h2>INQUIRY</h2>
-                                    <p>문의사항 및 건의사항</p>
-                                </a>
+        
                             
                             
                                 <a href="#STUDY" className="centerButton">
