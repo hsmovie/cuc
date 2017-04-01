@@ -18,6 +18,7 @@ import _ from 'lodash';
 import Introduction from 'components/Base/Body/Introduction/Introduction';
 import Study from 'components/Base/Body/Study/Study';
 import Footer from 'components/Base/Footer/Footer';
+import Map from 'components/Base/Body/Map/Map';
 import RsvpLayout, { RsvpOne, RsvpTwo, RsvpThree, RsvpFour, RsvpFive, RsvpSix, RsvpSeven, RsvpEight, RsvpNine, RsvpTen } from 'components/Base/Body/Rsvp/RsvpLayout';
 
 class MainRoute extends Component {
@@ -58,6 +59,7 @@ class MainRoute extends Component {
                 </RsvpLayout>
 
                  <Study/>
+                 <Map/>
                 <Footer/>
             </div>
         );

@@ -139,8 +139,8 @@ class Rsvp extends Component {
                         data-hover="Go?"/>
 
                 </div>
-
-                <span className="time">{this.props.rsvp.time}</span>
+                
+                <span className="time">{this.props.rsvp.time}<span className="title">({this.props.rsvp.title})</span></span>
 
                 <div className="pictures-wraaper">
                     {renderPhotos()}
@@ -148,15 +148,17 @@ class Rsvp extends Component {
                         ? <Icon name="ellipsis horizontal"/>
                         : null}
                 </div>
-
+                
                 <span className="number-wrapper">
+                
                     {noPickturesToggle
                         ? null
                         : <Label circular size="big" className="number">
                             +{_.size(this.props.rsvp.people)}
                         </Label>}
-
+                        
                 </span>
+                
 
                 
 

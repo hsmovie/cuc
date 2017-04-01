@@ -28,7 +28,7 @@ class App extends Component {
             if (firebaseUser) {
                 this.setState({toggle: true});
                 
-                if (firebaseUser.uid === "pXrzS2OyGiYFNIDVYnlgPBB1ABd2") {
+                if (firebaseUser.uid === "pXrzS2OyGiYFNIDVYnlgPBB1ABd2" || "kLGaQdFaciTQhYACi7gHyCJ0eqv1") {
                     this.setState({navBarToggle: true});
                 } else {
                     const user = await users.findUserById(firebaseUser.uid);
@@ -138,7 +138,7 @@ class App extends Component {
             handleLinkAccount,
             handleLogout,
             renderChildren,
-            renderNavbar
+            
         } = this;
 
         //토글 스테이트를 보고 버튼에 어떤 함수를 보내줄지 알아냄.
