@@ -1,18 +1,26 @@
 import React, {Component} from 'react';
-import naverMap from 'maps.js';
+// import naverMap from 'maps.js';
 
 class Map extends Component {
 
+
+
     
     render() {
-        const style = {
-            width: "100%",
-            height: "400px"
-        }
+//         var mapOptions = {
+//     center: new naverMap.naver.maps.LatLng(37.3595704, 127.105399),
+//     zoom: 10
+// };
+
+// var map = new naverMap.naver.maps.Map('map', mapOptions);
+//         const style = {
+//             width: "100%",
+//             height: "400px"
+//         }
 
         
         return (
-            <div></div>
+            <div id="map"></div>
         );
     }
 }

@@ -33,7 +33,7 @@ class Introduction extends Component {
                                 </div>
 
                                 <div className="second-line">Don't Just Exist</div>
-                                <div className="third-line">See you soon At CUC</div>
+                                
                             </div>
 
                         </div>

@@ -1,6 +1,8 @@
 .rsvplayout-wrapper {
     width: 100%;
-    background: linear-gradient(to bottom, rgba(150, 33, 33, 0.8) 0%, rgba(80, 10, 12, 0.6) 100%) repeat 0 0;
+    
+    // background: linear-gradient(to bottom, rgba(150, 33, 33, 0.8) 0%, rgba(80, 10, 12, 0.6) 100%) repeat 0 0;
+    background-color:white;
     .rsvplayout {
         padding-bottom: 10rem;
         padding-top: 10rem;
@@ -21,7 +23,7 @@
             width: 50%;
             font-size: 3.5rem;
             font-weight: 500;
-            color: #efeaea;
+            color: $oc-gray-7;
             letter-spacing: 3px;
             text-align: center;
             padding-top: 50px;
@@ -35,7 +37,7 @@
                 padding-bottom: 20px;
             }
             @include media("<=phone"){
-                font-size: 13px;
+                font-size: 12px;
                 padding-top: 10px;
                 padding-bottom: 10px;
             }
