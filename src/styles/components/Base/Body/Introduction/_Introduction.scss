@@ -1,282 +1,68 @@
 .introduction-wrapper {
-    // background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(bg.png) repeat 0 0, url('./images/wine.png') repeat 0 0;
-    // background: -moz-linear-gradient(top, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
-    // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.5)), color-stop(100%,rgba(255,255,255,0.5))), url('./images/wine.png') repeat 0 0;
-    // background: -webkit-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
-    // background: -o-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/wine.png') repeat 0 0;
-    // background: -ms-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%), url('./images/cuc.png') repeat 0 0;
-    // background: linear-gradient(to bottom, rgba(13,0,0,0.6) 0%,rgba(150,33,33,0.6) 100%) repeat 0 0;
-    // background: linear-gradient(to bottom, rgba(13, 0, 0, 0.8) 0%, rgba(150, 33, 33, 0.8) 100%), url('./images/cuc.png') repeat 0 0;
-    height:100vh;
-    
-    background: url('./images/cuc.png') repeat 0 0;
     .introduction {
-        
-        .introduction-description {
-            
-            
-            .welcome-wrapper {
-                
-                
-                .welcoming-sentences {
-                    padding-top: 10rem;                
-                    text-align: center;
-                    .cuc {
-                        width: 80%;
-                        margin-left: 10%;
-                        margin-right: 10%;
-                        display: block;
-                        padding-top: 5rem;
-                        padding-bottom: 5rem;
-                        padding-left: 3rem;
-                        padding-right: 3rem;
-                        text-align: center;
-                        margin-bottom: 3rem;
-                        font-weight: 900;
-                        color: #efeaea;
-                        font-size: 2rem;
-                        letter-spacing: 15px;
-                        line-height: 50px;
-                        border-top: 5px solid #efeaea;
-                        border-bottom: 5px solid #efeaea;
-                        animation: fadein 1s;
-                        .cucFirst {
-                            font-size: 2.5rem;
-                            animation: fadein 2s;
-                        }
-                        .cucSecond {
-                            font-size: 2rem;
-                            animation: fadein 3s;
-                        }
-                    }
-                    .second-line {
-                        display: inline-block;
-                        width: 20%;
-                        letter-spacing: 3px;
-                        padding-top: 1rem;
-                        padding-bottom: 1rem;
-                        margin-right: 2rem;
-                        font-size: 1.5rem;
-                        color: #f2dede;
-                        animation: fadein 4s;
-                        border-top: 2px solid #f2dede;
-                        border-bottom: 2px solid #f2dede;
-                    }
-                    .third-line {
-                        width: 20%;
-                        display: inline-block;
-                        letter-spacing: 3px;
-                        padding-top: 1rem;
-                        padding-bottom: 1rem;
-                        font-size: 1.5rem;
-                        color: #f2dede;
-                        animation: fadein 5s;
-                        border-top: 2px solid #f2dede;
-                        border-bottom: 2px solid #f2dede;
-                    }
-                    @keyframes fadein {
-                        from {
-                            opacity: 0;
-                        }
-                        to {
-                            opacity: 1;
-                        }
-                    }
-                }
-            }
-           
-            .buttons-wrapper {
-                padding-top: 5rem;
-                
-                // border: 2px solid red;
-                
-                text-align: center;
-                .centerButton {
-                
-                    background-color: Transparent;
-                    border-top: 1px solid $oc-red-2;
-                    border-bottom: 1px solid $oc-red-2;
-                    border-left: 1px solid $oc-red-2;
-                    padding-top: 3rem;
-                    padding-bottom: 3rem;
-                    float: left;
-                    width: 50%;
-                    height: 150px;
-                    transition: all 0.1s;
-                    color: #efeaea;
-                    letter-spacing: 3px;
-                    &:hover {
-                        background-color: $oc-gray-7;
-                        font-size: 1.2rem;
-                    }
-                }
-                .rightButton {
-                    background-color: Transparent;
-                    border: 1px solid $oc-red-2;
-                    padding-top: 3rem;
-                    padding-bottom: 3rem;
-                    float: left;
-                    width: 50%;
-                    height: 150px;
-                    transition: all 0.1s;
-                    color: #efeaea;
-                    letter-spacing: 3px;
-                    &:hover {
-                        background-color: $oc-gray-7;
-                        font-size: 1.2rem;
-                    }
-                }
-            }
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        position: relative;
+    }
+    .height-space {
+        height: 80vh;
+    }
+    .buttons-wrapper {
+        height: 20vh;
+        letter-spacing: 3px;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1.2rem;
+        background-color: rgba(0,0,0,0.3);
+    }
+    .leftButton {
+        border:1px solid $oc-red-2;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        transition: all 0.1s;
+        color: #efeaea;
+        width: 33.33vw;
+        font-family: 'Montserrat', sans-serif;
+        &:hover {
+            background-color: $oc-red-3;
         }
     }
+    .centerButton {
+        border-top:1px solid $oc-red-2;
+        border-bottom:1px solid $oc-red-2;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        transition: all 0.1s;
+        color: #efeaea;
+        width: 33.33vw;
+        font-family: 'Montserrat', sans-serif;
+        &:hover {
+            background-color: rgb(49, 165, 23);
+        }
+    }
+    .rightButton {
+        border:1px solid $oc-red-2;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        transition: all 0.1s;
+        color: white;
+        width: 33.33vw;
+        font-family: 'Montserrat', sans-serif;
+        &:hover {
+            background-color: $oc-blue-3;
+        }
+    }
+      @include media("<desktop") {
+          h2{
+              font-size:16px;
+          }
+          .buttons-wrapper{
+              font-size:14px;
+          }
+  .xmHide{
+      display:none;
+  }
+  
 }
-
-
-
-@include media(">phone", "<desktop") {
-    .introduction-wrapper {
-        .introduction {
-            .introduction-description {
-                .welcome-wrapper {
-                    .welcoming-sentences {
-                        padding-top: 9rem;;
-                        .cuc {
-                            width: 100%;
-                            margin-left: 0;
-                            margin-right: 0;
-                            padding-top: 30px;
-                            padding-bottom: 30px;
-                            .cucFirst {
-                                .span {
-                                    display: block;
-                                }
-                                text-align: left;
-                                font-size: 26px;
-                                .C {
-                                    color: $oc-red-4;
-                                }
-                            }
-                            .cucSecond {
-                                text-align: center;
-                                font-size: 15px;
-                            }
-                        }
-                        .second-line {
-                            width: 40%;
-                            font-size: 10px;
-                        }
-                        .third-line {
-                            width: 40%;
-                            font-size: 10px;
-                        }
-                    }
-                }
-                .buttons-wrapper {
-                    padding-top: 8.1rem;
-                    height:20px;
-                    font-size: 10px;
-                    .xmHide {
-                        display: none;
-                    }
-                    .leftButton {
-                        padding-left: 2px;
-                        padding-right: 2px;
-                        &:hover {
-                            font-size: 10px;
-                        }
-                    }
-                    .centerButton {
-                        padding-left: 2px;
-                        padding-right: 2px;
-                        &:hover {
-                            font-size: 10px;
-                        }
-                    }
-                    .rightButton {
-                        padding-left: 3px;
-                        padding-right: 3px;
-                        &:hover {
-                            font-size: 10px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@include media("<=phone") {
-    .introduction-wrapper {
-        .introduction {
-            .introduction-description {
-                .welcome-wrapper {
-                    .welcoming-sentences {
-                        padding-top: 8rem;
-                        .cuc {
-                            width: 100%;
-                            margin-left: 0;
-                            margin-right: 0;
-                            padding-top: 15px;
-                            padding-bottom: 15px;
-                            .cucFirst {
-                                .span {
-                                    font-size:19px;
-                                    display: block;
-                                }
-                                text-align: left;
-                                font-size: 12px;
-                                line-height: 30px;
-                                .C {
-                                    color: $oc-red-4;
-                                }
-                            }
-                            .cucSecond {
-                                text-align: center;
-                                letter-spacing: 10px;
-                                font-size: 13px;
-
-                            }
-                        }
-                        .second-line {
-                            width: 42%;
-                            font-size: 7px;
-                        }
-                        .third-line {
-                            width: 45%;
-                            font-size: 7px;
-                            letter-spacing: 1.8px;
-                        }
-                    }
-                }
-                .buttons-wrapper {
-                    padding-top:5rem;
-                    font-size: 10px;
-                    .xmHide {
-                        display: none;
-                    }
-                    .leftButton {
-                        padding-left: 2px;
-                        padding-right: 2px;
-                        &:hover {
-                            font-size: 10px;
-                        }
-                    }
-                    .centerButton {
-                        padding-left: 2px;
-                        padding-right: 2px;
-                        &:hover {
-                            font-size: 10px;
-                        }
-                    }
-                    .rightButton {
-                        padding-left: 3px;
-                        padding-right: 3px;
-                        &:hover {
-                            font-size: 10px;
-                        }
-                    }
-                }
-            }
-        }
-    }
 }

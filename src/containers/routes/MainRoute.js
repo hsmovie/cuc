@@ -6,6 +6,7 @@ import * as modal from 'redux/modules/base/modal'
 import * as rsvpdb from 'helpers/firebase/database/rsvp';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
+import Inquiry from 'components/Base/Body/Inquiry/Inquiry';
 
 // import * as Modals from 'components/Base/Modals';
 
@@ -42,7 +43,7 @@ class MainRoute extends Component {
 
             <div> 
                 <Introduction/>
-                
+                <Inquiry/>
                 <RsvpLayout>
             
                 <RsvpOne loginModal={this.props.loginModal}/>
@@ -57,7 +58,7 @@ class MainRoute extends Component {
                 <RsvpTen dateData={dateData[9]} loginModal={this.props.loginModal}/>
                 
                 </RsvpLayout>
-
+                
                  <Study/>
                  <Map/>
                 <Footer/>

@@ -6,7 +6,7 @@ export function findUserById(uid) {
 
 export function findCurrentUser(){
     const currentUser = firebase.auth().currentUser;
-    if(currentUser){
+    if(firebase.auth().currentUser){
         return currentUser ;
     }else{
         return console.log("No currentUser, not Loged in") ;

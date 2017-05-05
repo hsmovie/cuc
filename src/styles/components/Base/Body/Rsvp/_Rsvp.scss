@@ -30,10 +30,8 @@
         letter-spacing: 1.3px;
         line-height: 3rem;
     }
-    .dltButton {
-        float: right;
-        font-size: 0.7rem;
-    }
+  
+  
     .pictures-wraaper {
         display: inline;
         .pictures {
@@ -53,14 +51,34 @@
     }
   
 }
-
-@include media(">desktop") {
+@include media(">wide-desktop"){
     .rsvp {
         .goButton-wrapper {
             float: left;
             width: 7.33%;
         }
         .time {
+            float: left;
+            width: 24%;
+        }
+        .pictures-wraaper {
+            float: left;
+            width: 45%;
+        }
+        .number {
+            float: left;
+            width: 7.33%;
+        }
+    }
+}
+@include media("<=wide-desktop",">=desktop") {
+    .rsvp {
+        .goButton-wrapper {
+            float: left;
+            width: 7.33%;
+        }
+        .time {
+            font-size:13px;
             float: left;
             width: 24%;
         }
@@ -83,6 +101,7 @@
             font-size: 13px;
             margin-left: 0;
             line-height: 30px;
+            
         }
         .goButton-wrapper {
             transform: translate(-9px, 0);
@@ -140,3 +159,6 @@
         }
     }
 }
+
+          
+  

@@ -12,7 +12,7 @@ const {LoginModal, LinkAccountModal, LogoutModal} = Modals;
 const {SocialLoginButton} = LoginModal;
 
 import * as users from 'helpers/firebase/database/users';
-
+import Background from 'components/Base/Background';
 class App extends Component {
     constructor(props) {
         super(props);
@@ -126,7 +126,7 @@ class App extends Component {
         return childrenWithProps;
     }
 
-    renderNavbar = async() => {}
+    
     render() {
         const {status: {
                 modal
@@ -148,6 +148,7 @@ class App extends Component {
 
         return (
             <div>
+            <Background/>
                 <Header>
 
                     <BrandLogo/> {this.state.navBarToggle

@@ -1,8 +1,6 @@
-// import BigLogo from './BigLogo'; import {Button} from 'semantic-ui-react'
+
 import React, {Component} from 'react';
-// import Typist from 'react-typist';
-// import TypeWriter from 'react-typewriter';
-//  typing={1} maxDelay={100} minDelay={30}
+
 import ScrollableAnchor from 'react-scrollable-anchor';
 class Introduction extends Component {
     render() {
@@ -12,35 +10,13 @@ class Introduction extends Component {
         <ScrollableAnchor id={'HOME'}>
             <div className="introduction-wrapper">
                 <div className="introduction">
-
                     <div className="introduction-description">
-                        <div className="welcome-wrapper">
-                            <div className="welcoming-sentences">
-                                <div className="svg-wrapper">
-
-                                    <div className="cuc">
-                                        <p className="cucFirst">
-                                            <span className="span">
-                                                <span className="C">C</span>ulture lab</span>
-                                            <span className="span">
-                                                <span className="C"> U</span>nder the</span>
-                                            <span className="span">
-                                                <span className="C"> C</span>ity</span>
-                                        </p>
-                                        <p className="cucSecond">문화를 만드는 사람들
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="second-line">Don't Just Exist</div>
-                                
-                            </div>
-
-                        </div>
-                        <div className="buttons-wrapper row">
-        
-                            
-                            
+                        <div className="height-space"></div>
+                        <div className="buttons-wrapper">
+                        <a href="#INQUIRY" className="leftButton">
+                                    <h2>INQUIRY</h2>
+                                    <p>소개 및 문의<span className="xmHide"></span></p>
+                                </a>
                                 <a href="#STUDY" className="centerButton">
                                     <h2>STUDY</h2>
                                     <p>다양한 스터디<span className="xmHide">와 문화교류의 장이 펼쳐집니다.</span></p>

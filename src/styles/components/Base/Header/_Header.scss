@@ -1,10 +1,10 @@
 //태그 구조랑 같이 스타일을 부여한다. 부모자식관계로 덮어쓰기형식
 .header-wrapper {
   width: 100%;
-  background: linear-gradient(to bottom, rgba(77, 0, 0, 1) 0%, rgba(109, 68, 31, 1) 100%) repeat 0 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%) repeat 0 0;
   margin: 0 auto;
   height: 4rem;
-  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.8);
+  
   position: fixed;
   z-index: $z-index-header;
   .header {

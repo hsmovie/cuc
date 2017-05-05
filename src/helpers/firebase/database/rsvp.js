@@ -100,39 +100,39 @@ export function checkDaySwitch(month, date, day){
     .child(date);
 
         if (day === "Sunday") {
-          Rsvp.push({people: 0, selected: false, time: "10:30~12:00AM", title: "아침영어", day: "Sunday"});
-          Rsvp.push({people: 0, selected: false, time: "03:00~05:00PM", title: "점심영어", day: "Sunday"});
-          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "무비나잇", day: "Sunday"});
+          Rsvp.push({people: 0, selected: false, time: "10:30~12:00AM", title: "영어", day: "Sunday"});
+          Rsvp.push({people: 0, selected: false, time: "03:00~05:00PM", title: "영어", day: "Sunday"});
+          Rsvp.push({people: 0, selected: false, time: "06:30PM~", title: "무비", day: "Sunday"});
         }
 
         if (day === "Monday") {
-          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "저녘영어", day: "monday"});
+          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "영어", day: "monday"});
         }
 
         if (day === "Tuesday") {
-          Rsvp.push({people: 0, selected: false, time: "10:30~12:00AM", title: "아침영어", day: "Tuesday"});
-          Rsvp.push({people: 0, selected: false, time: "01:00~02:30PM", title: "점심영어", day: "Tuesday"});
-          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "저녘영어", day: "Tuesday"});
+          Rsvp.push({people: 0, selected: false, time: "10:30~12:00AM", title: "영어", day: "Tuesday"});
+          Rsvp.push({people: 0, selected: false, time: "01:00~02:30PM", title: "영어", day: "Tuesday"});
+          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "영어", day: "Tuesday"});
         }
 
         if (day === "Wednesday") {
-          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "저녘영어", day: "Wednesday"});
+          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "영어", day: "Wednesday"});
         }
 
         if (day === "Thursday") {
-          Rsvp.push({people: 0, selected: false, time: "10:30~12:00AM", title: "아침영어", day: "Thursday"});
-          Rsvp.push({people: 0, selected: false, time: "01:00~02:30PM", title: "점심영어", day: "Thursday"});
-          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "저녘영어", day: "Thursday"});
+          Rsvp.push({people: 0, selected: false, time: "10:30~12:00AM", title: "영어", day: "Thursday"});
+          Rsvp.push({people: 0, selected: false, time: "01:00~02:30PM", title: "영어", day: "Thursday"});
+          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "영어", day: "Thursday"});
         }
 
         if (day === "Friday") {
-          Rsvp.push({people: 0, selected: false, time: "06:30PM~", title: "테드토킹", day: "Friday"});
-          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "네트워킹", day: "Friday"});
+          Rsvp.push({people: 0, selected: false, time: "06:30PM~", title: "테드", day: "Friday"});
+          Rsvp.push({people: 0, selected: false, time: "07:30PM~", title: "영어", day: "Friday"});
         }
 
         if (day === "Saturday") {
-          Rsvp.push({people: 0, selected: false, time: "10:30~12:00AM", title: "아침영어", day: "Saturday"});
-          Rsvp.push({people: 0, selected: false, time: "03:00~05:00PM", title: "점심영어", day: "Saturday"});
+          Rsvp.push({people: 0, selected: false, time: "10:30~12:00AM", title: "영어", day: "Saturday"});
+          Rsvp.push({people: 0, selected: false, time: "03:00~05:00PM", title: "영어", day: "Saturday"});
         }
 }
 
